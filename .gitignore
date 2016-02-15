@@ -1,0 +1,17 @@
+logs/*
+!.gitkeep
+tmp
+.DS_Store
+.idea
+build
+node_modules
+vendor
+bower_components
+lib-cov
+coverage
+*~
+bin
+PhantomJS 1.9 (Linux)
+npm-debug.log
+.DS_Store
+junitxml_report/
