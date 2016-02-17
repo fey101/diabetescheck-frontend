@@ -10,8 +10,11 @@
         <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
     </head>
     <body class="sb-l-o sb-l-large onload-check">
-        <div>
-            YEIIIH, IT WORKS!!!!!
+        <div ui-view="main">
+          <header class="navbar navbar-fixed-top navbar-shadow bg-info" ng-cloak>
+            <div ui-view="indexheader"></div>
+          </header>
+          <div ng-include="'common/tpls/main-nav.tpl.html'"></div>
         </div>
         <!-- compiled JavaScript -->
         <% scripts.forEach( function ( file ) { %>

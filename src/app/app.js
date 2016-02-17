@@ -13,6 +13,7 @@
         //local modules
         "dbcheck.config",
         "dbcheck.admin",
+        "dbcheck.common",
         "dbcheck.recipe"
 
     ]);
