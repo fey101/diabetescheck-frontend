@@ -1,0 +1,187 @@
+.full button span {
+  background-color: limegreen;
+  border-radius: 32px;
+  color: black;
+}
+.partially button span {
+  background-color: orange;
+  border-radius: 32px;
+  color: black;
+}
+
+.btn-sm,
+.btn-group-sm > .btn
+ {
+  min-height: 30px;
+}
+
+.well {
+  min-height: 20px;
+  padding: 0px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+}
+
+.well-sm {
+  padding: 0px;
+  border-radius: 2px;
+}
+
+.btn-default {
+  background-color: #FFFFFF;
+}
+
+//remove arrows from timepicker appointment form
+table[name*="timepicker_startTime"] tbody > tr:nth-child(1){
+    display: none;
+    padding-left:2px;
+}
+table[name*="timepicker_startTime"] tbody > tr:nth-child(3){
+    display: none;
+    padding-left:2px;
+}
+
+table[name*="timepicker_endTime"] tbody > tr:nth-child(1){
+    display: none;
+    padding-left:2px;
+}
+
+table[name*="timepicker_endTime"] tbody > tr:nth-child(3){
+    display: none;
+    padding-left:2px;
+}
+.btn-glyphicon {
+  padding: 18px 12px 19px 12px;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Full Calendar Styling
+ * ---------------------------------------------------------------------------
+ **/
+.fc-unthemed .fc-today {
+    background: #F1F1F1;
+}
+
+.fc-past-event {
+    border: 1px solid #79ABC3;
+    background: #79ABC3;
+}
+
+/* Buttons (styled <button> tags, normalized to work cross-browser)
+-----------------------------------------------------------------------------*/
+
+.cal button {
+    /* force height to include the border and padding */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* dimensions */
+    margin: 0;
+    height: 2.1em;
+    padding: 0 .6em;
+
+    /* text & cursor */
+    font-size: 1em; /* normalize */
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.cal-btn-group {
+    margin-bottom: 1em;
+}
+
+/* Toolbar
+-----------------------------------------------------------------------------*/
+.cal-toolbar {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.cal-toolbar .cal-left {
+    float: left;
+}
+
+.cal-toolbar .cal-right {
+    float: right;
+}
+
+.cal-toolbar .cal-center {
+    display: inline-block;
+}
+
+.elem-center {
+    display: inline-block;
+}
+
+.cal-toolbar>*>*{
+    float:left;
+    margin-left:.75em
+}
+
+.cal-toolbar>*>:first-child{
+    margin-left:0
+}
+
+.cal-toolbar h2{
+    margin:0
+}
+
+.cal-toolbar button{
+    position:relative
+}
+
+.cal-btn-group {
+    display: inline-block;
+}
+
+.cal-btn-group > * {
+  float: left;
+  margin: 0 0 0 -1px;
+}
+
+.cal-btn-group > :first-child { /* same */
+  margin-left: 0;
+}
+
+.cal-btn-group.btn-group.cal-right {
+    float: right;
+    margin-top: 0.7em;
+}
+
+/* Calendar display
+-----------------------------------------------------------------------------*/
+.sil-calendar {
+    display: inline-block;
+    min-height: 240px;
+}
+
+.sil-calendar-resources {
+    white-space: nowrap;
+    overflow-x: scroll;
+    clear: both;
+}
+
+.sil-calendar-resources .sil-col-3 {
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sil-calendar-full-view .sil-col-12 {
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sil-calendar-resources h2 {
+    font-size: 16px;
+    margin-top: 0.25em;
+}

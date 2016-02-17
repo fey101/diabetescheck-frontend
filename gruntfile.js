@@ -43,7 +43,7 @@ module.exports = function ( grunt ) {
             banner:
                 "/*!Version <%= pkg.version %> \n" +
                 " * Generated <%= grunt.template.today('yyyy-mm-dd') %>\n" +
-                " * Copyright Savannah Informatics\n" +
+                " * Copyright diabetes check\n" +
                 " */"
         },
 

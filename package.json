@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "Angular js based frontend for diabetesproject",
-  "license": "proprietary",
+  "license": "MIT",
   "homepage": "https://github.com/fey101/diabetescheck-frontend",
   "bugs": "https://github.com/fey101/diabetescheck-frontend/issues",
   "repository": {

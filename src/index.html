@@ -1,0 +1,20 @@
+<html ng-app="diabetescheck">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+        <title>Diabetes Check</title>
+        <base href="/" >
+        <!-- compiled CSS -->
+        <% styles.forEach( function ( file ) { %>
+        <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+    </head>
+    <body class="sb-l-o sb-l-large onload-check">
+        <div>
+            YEIIIH, IT WORKS!!!!!
+        </div>
+        <!-- compiled JavaScript -->
+        <% scripts.forEach( function ( file ) { %>
+        <script type="text/javascript" src="<%= file %>"></script><% }); %>
+    </body>
+</html>
