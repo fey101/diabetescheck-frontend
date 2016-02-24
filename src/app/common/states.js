@@ -8,10 +8,8 @@
                 ncyBreadcrumb: {
                     label: "DIABETES CHECK"
                 },
+                url: "/",
                 views: {
-                    "main": {
-                        templateUrl: "common/tpls/content.tpl.html"
-                    },
                     "indexheader@":{
                         templateUrl: "layout/tpls/header.tpl.html"
                     },
