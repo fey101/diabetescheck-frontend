@@ -5,6 +5,7 @@
     .config(function config($stateProvider) {
         $stateProvider
             .state("admin", {
+                parent: "base_state",
                 url: "/admin",
                 controller: "dbcheck.admin.controllers.setup",
                 templateUrl: "/admin/tpls/admin_setup.tpl.html"
