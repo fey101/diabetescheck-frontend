@@ -14,6 +14,7 @@
         "dbcheck.config",
         "dbcheck.layout",
         "dbcheck.admin",
+        "dbcheck.journal",
         "dbcheck.common",
         "dbcheck.recipe"
 
