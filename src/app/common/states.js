@@ -4,20 +4,24 @@
 
     .config(function config($stateProvider) {
         $stateProvider
-            .state("base", {
-            url: "/",
-            views: {
-                "indexheader@": {
-                    templateUrl: "common/tpls/header.tpl.html"
+            .state("base_state", {
+                ncyBreadcrumb: {
+                    label: "DIABETES CHECK"
+                },
+                views: {
+                    "main": {
+                        templateUrl: "common/tpls/content.tpl.html"
+                    },
+                    "indexheader@":{
+                        templateUrl: "layout/tpls/header.tpl.html"
+                    },
+                    "indexsidebar@": {
+                        templateUrl: "layout/tpls/index_sidebar.tpl.html"
+                    },
+                    "content@": {
+                        template: "<div>hello!!!Am the content</div>"
+                    }
                 }
-            }
-        }).state("home", {
-            url: "/home",
-            views: {
-                "main@": {
-                    templateUrl: "common/tpls/content.tpl.html"
-                }
-            }
-        });
+            });
     });
 })(angular);
