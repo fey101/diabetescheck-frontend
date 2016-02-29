@@ -14,6 +14,7 @@
     ])
 
     .constant("PAGINATION_COUNT", 30)
+    .constant("RECAPTCHA_PUB_KEY", window.EMR_SETTINGS.RECAPTCHA_PUB_KEY)
     .constant("USER_INFO_URL", window.DBCHECK_SETTINGS.AUTH.USER_INFO_URL)
     .constant("SERVER_URL", window.DBCHECK_SETTINGS.SERVER_URL)
     .constant("CREDZ", window.DBCHECK_SETTINGS.CREDZ)
@@ -117,7 +118,7 @@
             "maxlength", "maxlengthValidationMsg", "", "", "Too Long");
     }]);
 
-    // .run(["api.oauth2",function (oauth2) {
-    //     oauth2.setXHRToken(oauth2.getToken());
-    // }]);
+    .run(["api.oauth2",function (oauth2) {
+        oauth2.setXHRToken(oauth2.getToken());
+    }]);
 })(angular, _);

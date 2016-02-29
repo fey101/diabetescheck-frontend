@@ -12,6 +12,7 @@
 
         //local modules
         "dbcheck.config",
+        "dbcheck.auth",
         "dbcheck.layout",
         "dbcheck.admin",
         "dbcheck.common",
