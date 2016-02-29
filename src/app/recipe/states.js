@@ -8,8 +8,12 @@
             .state("recipe", {
                 parent: "base_state",
                 url: "/recipes",
-                controller: "dbcheck.recipe.controllers.listRecipes",
-                templateUrl: "/recipe/tpls/listView.tpl.html"
+                views: {
+                    "content@": {
+                        controller: "dbcheck.recipe.controllers.listRecipes",
+                        templateUrl: "/recipe/tpls/listView.tpl.html"
+                    }
+                }
             });
     });
 })(angular);

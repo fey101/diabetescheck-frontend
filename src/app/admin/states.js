@@ -7,8 +7,12 @@
             .state("admin", {
                 parent: "base_state",
                 url: "/admin",
-                controller: "dbcheck.admin.controllers.setup",
-                templateUrl: "/admin/tpls/admin_setup.tpl.html"
+                views: {
+                    "content@": {
+                        controller: "dbcheck.admin.controllers.setup",
+                        templateUrl: "/admin/tpls/admin_setup.tpl.html"
+                    }
+                }
             });
     });
 })(angular);
