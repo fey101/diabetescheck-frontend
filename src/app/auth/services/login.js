@@ -60,6 +60,7 @@
                 loadState : function () {
                     var user = this.getUser();
                     var dump = JSON.parse(storage.getItem(store_state));
+                    console.log(dump);
                     if (user && dump) {
                         if (dump.user === user.id) {
                             return {
