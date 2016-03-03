@@ -3,8 +3,8 @@
 
     angular.module("dbcheck.auth.homePageService", [])
 
-    .factory("dbcheck.auth.services.homePage", ["AVAILABLE_HOMEPAGES",
-        "dbcheck.auth.services.login", function (homePages,loginServ) {
+    .factory("dbcheck.auth.services.homePage", ["AVAILABLE_HOMEPAGES", "VIEW_ACT",
+        "dbcheck.auth.services.login", function (homePages, viewAct, loginServ) {
         /**
          * @description A service that use the actions that a user has to
          * determine the homepage for a user. The service performs a cascade

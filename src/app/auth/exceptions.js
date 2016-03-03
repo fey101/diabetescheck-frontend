@@ -15,7 +15,7 @@
     }
 
     angular.module("dbcheck.exceptions", [])
-    .provider("emr.exceptions.Errors", [function () {
+    .provider("dbcheck.exceptions.Errors", [function () {
         this.$get = [function ( ) {
             return {
                 "ImproperlyConfigured": "ImproperlyConfigured",

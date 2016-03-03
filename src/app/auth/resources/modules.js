@@ -1,11 +1,11 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.resources.auth", [
-        // "emr.resources.auth.permission",
-        "emr.resources.auth.user",
-        // "emr.resources.auth.role",
-        // "emr.resources.auth.action",
-        // "emr.resources.auth.userRoles"
+    angular.module("dbcheck.resources.auth", [
+        // "dbcheck.resources.auth.permission",
+        "dbcheck.resources.auth.user"
+        // "dbcheck.resources.auth.role",
+        // "dbcheck.resources.auth.action",
+        // "dbcheck.resources.auth.userRoles"
     ]);
 })(angular);

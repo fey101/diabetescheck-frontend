@@ -14,7 +14,13 @@
     ])
 
     .constant("PAGINATION_COUNT", 30)
-    .constant("RECAPTCHA_PUB_KEY", window.EMR_SETTINGS.RECAPTCHA_PUB_KEY)
+    .constant("RECAPTCHA_PUB_KEY", window.DBCHECK_SETTINGS.RECAPTCHA_PUB_KEY)
+    .constant("PASSWORD_RESET", window.DBCHECK_SETTINGS.SERVER_URL +
+        window.DBCHECK_SETTINGS.AUTH.RESET_URL)
+    .constant("PASSWORD_CHANGE", window.DBCHECK_SETTINGS.SERVER_URL +
+        window.DBCHECK_SETTINGS.AUTH.PASS_CHANGE_URL)
+    .constant("PASSWORD_RES_CONFIRM", window.DBCHECK_SETTINGS.SERVER_URL +
+        window.DBCHECK_SETTINGS.AUTH.RESET_CONFIRM)
     .constant("USER_INFO_URL", window.DBCHECK_SETTINGS.AUTH.USER_INFO_URL)
     .constant("SERVER_URL", window.DBCHECK_SETTINGS.SERVER_URL)
     .constant("CREDZ", window.DBCHECK_SETTINGS.CREDZ)
@@ -48,6 +54,12 @@
 
     .config(["$locationProvider", function ($locationProvider) {
         $locationProvider.html5Mode(true);
+    }])
+
+    .config(["IdleProvider", "TIMEOUT", function (idleP, timeout) {
+        idleP.idle(timeout.idle);
+        idleP.timeout(timeout.warning);
+        idleP.keepalive(false);
     }])
 
     .config(["$httpProvider", function ($httpProvider) {
@@ -116,9 +128,9 @@
             "minlength", "minlengthValidationMsg", "", "", "Too Short");
         formlyValidationMessages.addTemplateOptionValueMessage(
             "maxlength", "maxlengthValidationMsg", "", "", "Too Long");
-    }]);
+    }])
 
-    .run(["api.oauth2",function (oauth2) {
+    .run(["api.oauth2", function (oauth2) {
         oauth2.setXHRToken(oauth2.getToken());
     }]);
 })(angular, _);

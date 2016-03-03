@@ -33,7 +33,7 @@
                     if (load_state) {
                         $state.go(load_state.name, load_state.params);
                     } else {
-                        $state.go(homePage[i])
+                        $state.go(homePage[1]);
                         // var homePage = homePageServ.determineHomePage();
                         // $state.go(homePage);
                     }

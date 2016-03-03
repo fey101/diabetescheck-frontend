@@ -1,7 +1,7 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.auth.states", [])
+    angular.module("dbcheck.auth.states", [])
 
     .config(["$stateProvider", function ($stateProvider) {
         $stateProvider
@@ -20,7 +20,7 @@
                     "reset_password_confirm&change_pwd&timeout",
                 views:{
                     "form":{
-                        controller: "emr.auth.controllers.loginAuth",
+                        controller: "dbcheck.auth.controllers.loginAuth",
                         templateUrl: "auth/tpls/login.tpl.html"
                     }
                 }
@@ -32,7 +32,7 @@
                 url: "/logout/?timeout&change_pwd",
                 views:{
                     "form":{
-                        controller: "emr.auth.controllers.logoutAuth",
+                        controller: "dbcheck.auth.controllers.logoutAuth",
                         templateUrl: "auth/tpls/login.tpl.html"
                     }
                 }
@@ -42,7 +42,7 @@
                 url: "/password/reset",
                 views:{
                     "form":{
-                        controller: "emr.auth.controllers.passwordReset",
+                        controller: "dbcheck.auth.controllers.passwordReset",
                         templateUrl: "auth/tpls/reset_email.tpl.html"
                     }
                 }
@@ -52,7 +52,7 @@
                 url: "/password/reset/confirm/:uid/:token",
                 views:{
                     "form":{
-                        controller: "emr.auth.controllers.passwordResetConfirm",
+                        controller: "dbcheck.auth.controllers.passwordResetConfirm",
                         templateUrl: "auth/tpls/reset_confirm.tpl.html"
                     }
                 }
@@ -63,7 +63,7 @@
                 url: "/auth/change/password/",
                 views:{
                     "form":{
-                        controller: "emr.common.controllers.changePassword",
+                        controller: "dbcheck.common.controllers.changePassword",
                         templateUrl: "auth/tpls/change_password.tpl.html"
                     }
                 }

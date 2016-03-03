@@ -7,7 +7,8 @@
     ])
 
     .service("dbcheck.authentication.isInitial", [
-        "$injector", "dbcheck.auth.services.login", function ($injector, authConfig) {
+        "$injector", "dbcheck.auth.services.login",
+        function ($injector, authConfig) {
 
             return {
                 canView: function (fromParams, toParams) {

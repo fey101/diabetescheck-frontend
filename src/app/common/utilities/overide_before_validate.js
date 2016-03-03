@@ -8,7 +8,7 @@
     ])
 
     .factory("dbcheck.resource.overideBeforeValidate",
-    ["DS","dbcheck.auth.services.login", function (DS, user) {
+    ["DS", function (DS) {
 
         return {
             beforeValidate : function () {

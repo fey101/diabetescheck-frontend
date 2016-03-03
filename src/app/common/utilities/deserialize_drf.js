@@ -3,9 +3,9 @@
 
     angular.module("dbcheck.common.utilities.deserialize_drf",[
         "dbcheck.config",
-        "dbcheck.resources.common.jsDataUtils",
+        "dbcheck.common.utilities.jsDataUtils",
         // "dbcheck.common.utilities.deserialize_drf",
-        "dbcheck.resources.common.overide_before_validate"
+        "dbcheck.common.utilities.overide_before_validate"
     ])
 
     .factory("dbcheck.resource.deserializeDRF", ["dbcheck.resource.metadataCache",

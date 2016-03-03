@@ -47,8 +47,8 @@
                     }
                 },
                 getUser : function() {
-                    user = JSON.parse(storage.getItem(store_key));
-                    console.log(storage)
+                    var user = JSON.parse(storage.getItem(store_key));
+                    console.log(storage);
                     console.log(user);
                     return JSON.parse(storage.getItem(store_key));
                 },

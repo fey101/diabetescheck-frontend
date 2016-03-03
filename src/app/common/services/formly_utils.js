@@ -107,7 +107,7 @@
                             "<div><toggle-switch ng-model='model[options.key]'",
                             "on-label='{{to.onLabel}}'",
                             " off-label='{{to.offLabel}}'>",
-                        "<toggle-switch></div>"].join(" "),
+                            "<toggle-switch></div>"].join(" "),
                         wrapper: ["bootstrapLabel", "bootstrapHasError"]
                     },
 

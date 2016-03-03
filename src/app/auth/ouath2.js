@@ -2,7 +2,8 @@
     "use strict";
 
     angular.module("dbcheck.auth.oauth2", [
-        "dbcheck.config"
+        "dbcheck.config",
+        "diabetescheck.constants"
     ])
 
     .factory("api.oauth2",
