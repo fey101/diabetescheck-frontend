@@ -11,7 +11,7 @@
                 views: {
                     "content@": {
                         controller: "dbcheck.recipe.controllers.listRecipes",
-                        templateUrl: "/recipe/tpls/listView.tpl.html"
+                        templateUrl: "recipe/tpls/listView.tpl.html"
                     }
                 }
             });

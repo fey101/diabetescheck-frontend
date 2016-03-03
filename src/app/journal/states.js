@@ -13,7 +13,7 @@
                 views: {
                     "content@": {
                         controller: "dbcheck.journal.controllers.initial",
-                        templateUrl: "/journal/tpls/initial.tpl.html"
+                        templateUrl: "journal/tpls/initial.tpl.html"
                     }
                 }
             });
