@@ -97,16 +97,15 @@
         });
     }])
 
-    // .run(["emr.resource.overideBeforeValidate", "emr.resource.deserializeDRF",
-    //     "DSHttpAdapter", "SERVER_URL",
-    //     function (overide, desDrf, httpAdapter, SERVER_URL) {
-    //         httpAdapter.defaults.deserialize = desDrf.deserializeFunc;
-    //         overide.beforeValidate();
-    //         httpAdapter.defaults.basePath = SERVER_URL;
-    //         httpAdapter.defaults.forceTrailingSlash = true;
-    //         httpAdapter.defaults.log = false;
-    //     }
-    // ])
+    .run(["dbcheck.resource.deserializeDRF",
+        "DSHttpAdapter", "SERVER_URL",
+        function ( desDrf, httpAdapter, SERVER_URL) {
+            httpAdapter.defaults.deserialize = desDrf.deserializeFunc;
+            httpAdapter.defaults.basePath = SERVER_URL;
+            httpAdapter.defaults.forceTrailingSlash = true;
+            httpAdapter.defaults.log = false;
+        }
+    ])
 
     // .run(["emr.actions.pageChecker", function (pageChecker) {
     //         pageChecker.startListening();

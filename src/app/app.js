@@ -16,6 +16,7 @@
         "dbcheck.auth",
         "dbcheck.layout",
         "dbcheck.admin",
+        "dbcheck.journal",
         "dbcheck.common",
         "dbcheck.recipe"
 
