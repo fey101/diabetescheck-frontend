@@ -3,7 +3,8 @@
 
     angular.module("dbcheck.common",[
         "dbcheck.common.controllers",
-        "dbcheck.common.routes"
-        // "dbcheck.common.services"
+        "dbcheck.common.routes",
+        "dbcheck.common.utilities",
+        "dbcheck.common.services"
     ]);
 })(angular);

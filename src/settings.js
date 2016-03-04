@@ -4,12 +4,13 @@
 
     var setts = {
         "SERVER_URL": "http://localhost:8000",
+        "RECAPTCHA_PUB_KEY": "6LckHxgTAAAAAGf8I625o07SLrAtDMF71YKxSRwe",
         "DEBUG": true,
         "ACTIONS": {
             "RESTRICT": []
         },
         "CREDZ": {
-            "client_id": "dbc254",
+            "client_id": "dbcheck2548",
             "client_secret": "diabetescheck@siri"
         },
         "AUTH": {

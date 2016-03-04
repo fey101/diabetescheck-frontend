@@ -14,6 +14,13 @@
     ])
 
     .constant("PAGINATION_COUNT", 30)
+    .constant("RECAPTCHA_PUB_KEY", window.DBCHECK_SETTINGS.RECAPTCHA_PUB_KEY)
+    .constant("PASSWORD_RESET", window.DBCHECK_SETTINGS.SERVER_URL +
+        window.DBCHECK_SETTINGS.AUTH.RESET_URL)
+    .constant("PASSWORD_CHANGE", window.DBCHECK_SETTINGS.SERVER_URL +
+        window.DBCHECK_SETTINGS.AUTH.PASS_CHANGE_URL)
+    .constant("PASSWORD_RES_CONFIRM", window.DBCHECK_SETTINGS.SERVER_URL +
+        window.DBCHECK_SETTINGS.AUTH.RESET_CONFIRM)
     .constant("USER_INFO_URL", window.DBCHECK_SETTINGS.AUTH.USER_INFO_URL)
     .constant("SERVER_URL", window.DBCHECK_SETTINGS.SERVER_URL)
     .constant("CREDZ", window.DBCHECK_SETTINGS.CREDZ)
@@ -47,6 +54,12 @@
 
     .config(["$locationProvider", function ($locationProvider) {
         $locationProvider.html5Mode(true);
+    }])
+
+    .config(["IdleProvider", "TIMEOUT", function (idleP, timeout) {
+        idleP.idle(timeout.idle);
+        idleP.timeout(timeout.warning);
+        idleP.keepalive(false);
     }])
 
     .config(["$httpProvider", function ($httpProvider) {
@@ -84,16 +97,15 @@
         });
     }])
 
-    // .run(["emr.resource.overideBeforeValidate", "emr.resource.deserializeDRF",
-    //     "DSHttpAdapter", "SERVER_URL",
-    //     function (overide, desDrf, httpAdapter, SERVER_URL) {
-    //         httpAdapter.defaults.deserialize = desDrf.deserializeFunc;
-    //         overide.beforeValidate();
-    //         httpAdapter.defaults.basePath = SERVER_URL;
-    //         httpAdapter.defaults.forceTrailingSlash = true;
-    //         httpAdapter.defaults.log = false;
-    //     }
-    // ])
+    .run(["dbcheck.resource.deserializeDRF",
+        "DSHttpAdapter", "SERVER_URL",
+        function ( desDrf, httpAdapter, SERVER_URL) {
+            httpAdapter.defaults.deserialize = desDrf.deserializeFunc;
+            httpAdapter.defaults.basePath = SERVER_URL;
+            httpAdapter.defaults.forceTrailingSlash = true;
+            httpAdapter.defaults.log = false;
+        }
+    ])
 
     // .run(["emr.actions.pageChecker", function (pageChecker) {
     //         pageChecker.startListening();
@@ -115,9 +127,9 @@
             "minlength", "minlengthValidationMsg", "", "", "Too Short");
         formlyValidationMessages.addTemplateOptionValueMessage(
             "maxlength", "maxlengthValidationMsg", "", "", "Too Long");
-    }]);
+    }])
 
-    // .run(["api.oauth2",function (oauth2) {
-    //     oauth2.setXHRToken(oauth2.getToken());
-    // }]);
+    .run(["api.oauth2", function (oauth2) {
+        oauth2.setXHRToken(oauth2.getToken());
+    }]);
 })(angular, _);

@@ -9,14 +9,18 @@
         "js-data",
         "formly",
         "formlyBootstrap",
+        "ngIdle",
 
         //local modules
         "dbcheck.config",
+        "dbcheck.auth",
         "dbcheck.layout",
         "dbcheck.admin",
         "dbcheck.journal",
         "dbcheck.common",
-        "dbcheck.recipe"
+        "dbcheck.recipe",
+        "dbcheck.community",
+        "dbcheck.planner"
 
     ]);
 })(angular);
