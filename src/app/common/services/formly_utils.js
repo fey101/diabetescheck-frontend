@@ -107,7 +107,8 @@
                             "<div><toggle-switch ng-model='model[options.key]'",
                             "on-label='{{to.onLabel}}'",
                             " off-label='{{to.offLabel}}'>",
-                            "<toggle-switch></div>"].join(" "),
+                            "<toggle-switch></div>"
+                        ].join(" "),
                         wrapper: ["bootstrapLabel", "bootstrapHasError"]
                     },
 
@@ -127,7 +128,8 @@
                         template: [
                             "<div vc-recaptcha",
                             "key=model[options.key]>",
-                            "</div>"].join(" "),
+                            "</div>"
+                        ].join(" "),
                         wrapper: ["bootstrapLabel", "bootstrapHasError"]
                     },
                     {
