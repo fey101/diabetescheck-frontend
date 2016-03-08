@@ -1,7 +1,10 @@
 <div ng-if="alert">{{alert}}</div>
 <div>
+    <h3>Available Recipes</h3>
+    <hr/>
     <ul>
-        <li ng-repeat="recipe in recipes">{{recipe}}</li>
+        <li ng-repeat="recipe in recipes">
+            <a ui-sref="recipe.detail({recipeID:recipe.id})">{{recipe.name}}</a>
+        </li>
     </ul>
 </div>
-

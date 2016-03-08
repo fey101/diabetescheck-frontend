@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="sil-col-6">
+        <table class="table table-responsive">
+            <tbody>
+                <tr>
+                    <td id="paging-info">
+                        <strong>{{paginator.getPageStartIndex() || "-"}}</strong>
+                    </td>
+                    <td id="paging-info">-</td>
+                    <td id="paging-info">
+                        <strong>{{paginator.getPageEndIndex() || "-"}}</strong>
+                    </td>
+                    <td id="paging-info">of</td>
+                    <td id="paging-info">
+                        <strong>{{paginator.getTotalItemCount() || "0"}}</strong>
+                    </td>
+                    <td id="paging-info">records</td>
+                    <td id="paging-info">
+                        <strong>{{paginator.getCurrentPage() || "-"}}</strong>
+                    </td>
+                    <td id="paging-info">of</td>
+                    <td id="paging-info">
+                        <strong>{{paginator.getTotalPages() || "-"}}</strong>
+                    </td>
+                    <td id="paging-info">Pages</td>
+                    <td id="paging-info">Enter</td>
+                    <td id="paging-info">Page</td>
+                    <td id="paging-info">
+                        <input type="text" class="form-control"
+                            ng-model="pageParam" id="page-number-input"/>
+                    </td>
+                    <td id="paging-info">
+                        <button class="btn btn-success btn-sm"
+                            ng-click="goToPage(pageParam)">Go</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="sil-col-4"></div>
+    <div class="sil-col-2">
+        <table class="table table-responsive">
+            <tbody>
+                <tr>
+                    <td id="paging-info">
+                        <button id="paging-navigation" class="btn btn-default btn-sm" ng-click="firstPage()">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
+                    </td>
+                    <td id="paging-info">
+                        <button id="paging-navigation" class="btn btn-default btn-sm" ng-click="previousPage()">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </td>
+                    <td id="paging-info">
+                        <button id="paging-navigation" class="btn btn-default btn-sm" ng-click="nextPage()">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                    </td>
+                    <td id="paging-info">
+                        <button id="paging-navigation" class="btn btn-default btn-sm" ng-click="lastPage()">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

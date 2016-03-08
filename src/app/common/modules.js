@@ -5,6 +5,7 @@
         "dbcheck.common.controllers",
         "dbcheck.common.routes",
         "dbcheck.common.utilities",
-        "dbcheck.common.services"
+        "dbcheck.common.services",
+        "dbcheck.common.directives"
     ]);
 })(angular);

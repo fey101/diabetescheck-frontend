@@ -10,7 +10,7 @@
             "RESTRICT": []
         },
         "CREDZ": {
-            "client_id": "dbcheck2548",
+            "client_id": "dbc254",
             "client_secret": "diabetescheck@siri"
         },
         "AUTH": {

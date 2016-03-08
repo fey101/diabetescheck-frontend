@@ -3,6 +3,18 @@
 
     angular.module("dbcheck.config", [
         "ui.router"
+        // "js-data",
+        // "formly",
+        // "dbcheck.auth",
+        // "ui.select",
+        // "dbcheck.common.utilities.jsDataUtils",
+        // "dbcheck.common.utilities.deserialize_drf",
+        // "dbcheck.common.utilities.overide_before_validate",
+        // "angular-loading-bar",
+        // "ngIdle",
+        // "ngDialog",
+        // "ngIntlTelInput",
+        // "dbcheck.common.formlyUtils"
     ])
     /** contains the available homepages that a user can be redirected to.
      *  the list is also in order of preference whereby if a user is found
@@ -107,16 +119,16 @@
         }
     ])
 
-    // .run(["emr.actions.pageChecker", function (pageChecker) {
+    // .run(["dbcheck.actions.pageChecker", function (pageChecker) {
     //         pageChecker.startListening();
     //     }
     // ])
 
-    // .run(["emr.common.formly.formlyConfig", function (formlyConfig) {
-    //     formlyConfig.formlyConfigs();
-    //     formlyConfig.setType();
-    //     formlyConfig.setWrapper();
-    // }])
+    .run(["dbcheck.common.formly.formlyConfig", function (formlyConfig) {
+        formlyConfig.formlyConfigs();
+        formlyConfig.setType();
+        formlyConfig.setWrapper();
+    }])
 
     .run(["formlyValidationMessages", function (formlyValidationMessages) {
         formlyValidationMessages.addTemplateOptionValueMessage(
