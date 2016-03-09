@@ -7,8 +7,8 @@
     ])
 
     .controller("dbcheck.common.comboboxController", [
-        "$scope", "DS", "$sce", "errorMessage",
-        function ($scope, DS, $sce, alerts) {
+        "$scope", "DS", "$sce", "errorMessage", "dbcheck.resources.person",
+        function ($scope, DS, $sce, alerts, person) {
             $scope.trustAsHtml = function (value) {
                 return $sce.trustAsHtml(value);
             };
@@ -16,7 +16,6 @@
                 return;
             }
             var resourceName = $scope.to.optionsResource;
-            console.log(DS);
             $scope.to.options = [];
 
             $scope.refreshResults = function (value) {
@@ -29,7 +28,6 @@
                     search: value
                 };
                 DS.findAll(resourceName, params).then(function (data) {//for searches
-                    console.log(data);
                     $scope.to.options = data;
                 }, function (err) {
                     $scope.alert = alerts.showError(
@@ -39,11 +37,9 @@
 
             DS.findAll(resourceName).then(
             function (data) {//shows 30 records
-                console.log(data);
                 $scope.to.options = data;
             },
             function (err) {
-                    console.log(err);
                     $scope.alert = alerts.showError(
                         err, "Failed to Load Resource");
                 });

@@ -18,8 +18,8 @@
         "dbcheck.auth",
         "dbcheck.layout",
         "dbcheck.admin",
-        "dbcheck.journal",
         "dbcheck.common",
+        "dbcheck.journal",
         "dbcheck.recipe",
         "dbcheck.community",
         "dbcheck.planner"
