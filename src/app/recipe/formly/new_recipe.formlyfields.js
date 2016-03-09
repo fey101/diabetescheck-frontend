@@ -17,6 +17,9 @@
             var fields = [
                 {
                     "key": "name",
+                    "ngModelElAttrs": {
+                        "tabindex" : "1"
+                    },
                     "templateOptions": {
                         "label": "Recipe name",
                         "reqValidationMsg": "Please provide a Recipe name",
@@ -27,6 +30,9 @@
                 },
                 {
                     "key": "description",
+                    "ngModelElAttrs": {
+                        "tabindex" : "2"
+                    },
                     "templateOptions": {
                         "label": "Description",
                         "required": false,
@@ -37,6 +43,9 @@
                 },
                 {
                     "key": "instructions",
+                    "ngModelElAttrs": {
+                        "tabindex" : "3"
+                    },
                     "templateOptions": {
                         "label": "Cooking instructions",
                         "reqValidationMsg":
@@ -48,6 +57,9 @@
                 },
                 {
                     "key": "prep_time",
+                    "ngModelElAttrs": {
+                        "tabindex" : "4"
+                    },
                     "templateOptions": {
                         "label": "Prep time",
                         "reqValidationMsg": "Please provide the time it" +
@@ -59,6 +71,9 @@
                 },
                 {
                     "key": "serving",
+                    "ngModelElAttrs": {
+                        "tabindex" : "5"
+                    },
                     "defaultValue": 1,
                     "templateOptions": {
                         "label": "Serving",
@@ -69,6 +84,23 @@
                         "type": "number"
                     },
                     "type": "input"
+                },
+                {
+                    "key": "person",
+                    "defaultValue": 1,
+                    "ngModelElAttrs": {
+                        "tabindex" : "6"
+                    },
+                    "templateOptions": {
+                        "label": "Login Name",
+                        "labels": ["person_display"],
+                        "options": [],
+                        "optionsResource": "person",
+                        "valueProp": "id",
+                        "required": true,
+                        "reqValidationMsg": "Please provide your username"
+                    },
+                    "type": "combobox"
                 }
 
             ];

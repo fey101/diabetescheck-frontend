@@ -10,6 +10,8 @@
         "formly",
         "formlyBootstrap",
         "ngIdle",
+        "ui.select",
+        "js-data",
 
         //local modules
         "dbcheck.config",

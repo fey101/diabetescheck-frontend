@@ -21,14 +21,14 @@
     ])
     .controller("dbcheck.recipe.controllers.recipeDetail", [
         "$scope", "$state", "dbcheck.resources.recipe",
-        "dbcheck.common.service.js_data_alerts",
-        function ($scope, $state, recipe, error_svc) {
+        "errorMessage",
+        function ($scope, $state, recipe, alert) {
             var id = $state.params.recipeID;
             recipe.find(id).then(function (data) {
                 $scope.recipe = data;
             },
             function(error) {
-                $scope.alert = error_svc.showErr(error, "Error");
+                $scope.alert = alert.showError(error);
             });
 
         }
@@ -36,7 +36,7 @@
     .controller("dbcheck.recipe.controllers.new_recipe", [
         "$scope", "dbcheck.recipe.formly.new_recipe",
         "dbcheck.resources.recipe", "$state",
-        "dbcheck.common.service.js_data_alerts",
+        "errorMessage",
         function ( $scope, formlyService, recipeResource, $state,
             alert) {
             $scope.recipeForm = {};
@@ -51,7 +51,7 @@
                         $state.go("recipe");
                     }, function (err) {
                         $scope.submitClicked = false;
-                        $scope.alert = alert.showError(err, "Error");
+                        $scope.alert = alert.showError(err);
                     });
             };
         }

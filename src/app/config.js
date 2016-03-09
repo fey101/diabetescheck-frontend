@@ -3,10 +3,8 @@
 
     angular.module("dbcheck.config", [
         "ui.router"
-        // "js-data",
         // "formly",
         // "dbcheck.auth",
-        // "ui.select",
         // "dbcheck.common.utilities.jsDataUtils",
         // "dbcheck.common.utilities.deserialize_drf",
         // "dbcheck.common.utilities.overide_before_validate",
