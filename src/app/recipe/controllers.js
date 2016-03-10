@@ -1,7 +1,7 @@
 (function (angular) {
     "use strict";
     angular.module("dbcheck.recipe.controllers", [
-        "dbcheck.resources.recipe.recipes",
+        "dbcheck.resources.recipe.linkRecipeThings",
         "dbcheck.common.services.js_data_alerts"
     ])
 
@@ -11,7 +11,6 @@
         function ($scope, recipe, error_svc) {
             recipe.findAll().then(function (data) {
                 $scope.recipes = data;
-                console.log($scope.recipes);
             },
             function(error) {
                 $scope.alert = error_svc.showErr(error, "Error");
@@ -34,18 +33,17 @@
         }
     ])
     .controller("dbcheck.recipe.controllers.new_recipe", [
-        "$scope", "dbcheck.recipe.formly.new_recipe",
-        "dbcheck.resources.recipe", "$state",
+        "$scope", "dbcheck.resource.linkRecipeThings",
+        "dbcheck.recipe.formly.new_recipe", "$state",
         "errorMessage",
-        function ( $scope, formlyService, recipeResource, $state,
+        function ( $scope, linkResource, formlyService, $state,
             alert) {
             $scope.recipeForm = {};
             $scope.fields = formlyService.getFields();
-            console.log($scope.fields);
 
             $scope.createRecipe = function () {
                 $scope.submitClicked = true;
-                recipeResource.create($scope.recipeForm.model)
+                linkResource.recipe.create($scope.recipeForm.model)
                     .then(function (newRecipe) {
                         $scope.queueReturned = newRecipe;
                         $state.go("recipe");

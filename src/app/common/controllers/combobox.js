@@ -7,8 +7,8 @@
     ])
 
     .controller("dbcheck.common.comboboxController", [
-        "$scope", "DS", "$sce", "errorMessage", "dbcheck.resources.person",
-        function ($scope, DS, $sce, alerts, person) {
+        "$scope", "DS", "$sce", "errorMessage",
+        function ($scope, DS, $sce, alerts) {
             $scope.trustAsHtml = function (value) {
                 return $sce.trustAsHtml(value);
             };

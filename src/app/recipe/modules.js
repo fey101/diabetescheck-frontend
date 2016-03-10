@@ -5,7 +5,6 @@
         "dbcheck.recipe.controllers",
         "dbcheck.recipe.routes",
         "dbcheck.recipes.services.formly",
-        "dbcheck.recipe.resources",
-        "dbcheck.resources.journal.persons"
+        "dbcheck.recipe.resources"
     ]);
 })(angular);
