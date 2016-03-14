@@ -23,7 +23,7 @@
             <div>
                 <span><strong>Frequently Asked Questions</strong></span>
                 <div class="well" ng-repeat="group in groups">
-                    <a ui-sref="#" data-toggle="collapse" data-target="#toggle-content-{{$index}}">
+                    <a data-toggle="collapse" data-target="#toggle-content-{{$index}}">
                         <span>{{group.title}}</span>
                     </a>
                     <div id="toggle-content-{{$index}}" class="collapse">

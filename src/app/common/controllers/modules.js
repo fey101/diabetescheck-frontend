@@ -3,7 +3,8 @@
 
     angular.module("dbcheck.common.controllers", [
         // "emr.common.controllers.patientBanner",
-        // "emr.common.controllers.userProfile",
+        "dbcheck.common.controllers.userProfile",
+        "dbcheck.common.services.formly",
         // "emr.common.controllers.datepicker",
         // "emr.common.controllers.datetimepicker",
         "dbcheck.common.controllers.timepicker",

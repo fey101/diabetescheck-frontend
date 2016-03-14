@@ -47,9 +47,6 @@
                     }
                 },
                 getUser : function() {
-                    var user = JSON.parse(storage.getItem(store_key));
-                    console.log(storage);
-                    console.log(user);
                     return JSON.parse(storage.getItem(store_key));
                 },
                 isLoggedIn : function () {

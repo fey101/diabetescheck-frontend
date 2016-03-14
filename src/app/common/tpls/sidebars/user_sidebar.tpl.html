@@ -1,13 +1,17 @@
-<sil-sidebar>
-    <sidebar-label label="Users"></sidebar-label>
-    <sidebar-title
-        sref="profile"
-        icon="user"
-        title="Profile">
-    </sidebar-title>
-    <sidebar-title
-        sref="change_password"
-        icon="lock"
-        title="Change Password">
-    </sidebar-title>
-</sil-sidebar>
+<div class="sidebar-left-content">
+    <ul class="nav sidebar-menu">
+        <li class="sidebar-label pt20">Users</li>
+        <li ui-sref-active="active">
+            <a ui-sref="profile">
+                <span class="fa fa-user"></span>
+                <span class="sidebar-title">Profile</span>
+            </a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="change_password">
+                <span class="fa fa-lock"></span>
+                <span class="sidebar-title">Change Password</span>
+            </a>
+        </li>
+    </ul>
+</div>

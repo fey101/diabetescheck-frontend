@@ -1,17 +1,17 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.common.controllers.userProfile", [
-        "emr.common.services",
-        "emr.resources.auth.user",
-        "emr.common.formly.user",
-        "emr.resources.common.person"
+    angular.module("dbcheck.common.controllers.userProfile", [
+        "dbcheck.common.services",
+        "dbcheck.resources.auth.user",
+        "dbcheck.common.services.formly",
+        "dbcheck.resources.journal.persons"
     ])
 
-    .controller("emr.common.controllers.user_profile", [
-        "$scope", "$stateParams", "emr.common.formly.user",
-        "emr.resource.user","emr.auth.services.login","emr.resource.person",
-        "errorMessage",
+    .controller("dbcheck.common.controllers.user_profile", [
+        "$scope", "$stateParams", "dbcheck.common.formly.user",
+        "dbcheck.resource.user","dbcheck.auth.services.login",
+        "dbcheck.resources.person", "errorMessage",
         function ( $scope, $stateParams, formlyService, userResource, AuthService,
             personResource, silAlert) {
             $scope.userProfile = {};
@@ -39,21 +39,21 @@
                         $scope.alert = silAlert.showError(err,"Error");
                     });
             };
-            $scope.update = function () {
-                var params = $scope.userProfile.model.person_details.id;
-                var personDetails = {
-                    first_name: $scope.userProfile.model.person_details.first_name,
-                    last_name: $scope.userProfile.model.person_details.last_name,
-                    organisation: user.organisation
-                };
-                personResource.update(params, personDetails)
-                .then(function () {
-                    $scope.updateUser();
+            // $scope.update = function () {
+            //     var params = $scope.userProfile.model.person_details.id;
+            //     var personDetails = {
+            //         first_name:
+            //             $scope.userProfile.model.person_details.first_name,
+            //         last_name: $scope.userProfile.model.person_details.last_name,
+            //     };
+            //     personResource.update(params, personDetails)
+            //     .then(function () {
+            //         $scope.updateUser();
 
-                }, function (err) {
-                    $scope.alert = silAlert.showError(err, "Error");
-                });
-            };
+            //     }, function (err) {
+            //         $scope.alert = silAlert.showError(err, "Error");
+            //     });
+            // };
         }
     ]);
 }) (angular);

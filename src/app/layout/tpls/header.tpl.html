@@ -3,23 +3,34 @@
       <a class="navbar-brand">
           <span class="brand-color">Diabetes Check</span>
       </a>
+      <span ng-show="toggle" id="toggle_sidemenu_l" class="fa fa-bars" submenu-toggle>
+      </span>
   </div>
-  <ul class="nav navbar-nav navbar-right">
+  <ul class="nav navbar-nav navbar-right" ng-controller="dbcheck.auth.controllers.userDetails">
+      <li>
+        <div class="navbar-btn btn-group">
+          <a href="#" class="topbar-menu-toggle btn btn-sm"
+            tooltip="Server Status" tooltip-placement="bottom" aria-pressed="false">
+            <span class="fa fa-check-circle"></span>
+          </a>
+        </div>
+      </li>
       <li class="dropdown menu-merge">
           <a href="#" class="dropdown-toggle p15" data-toggle="dropdown">
               <span class="hidden-xs pl15">
-                  <i class="fa fa-user"></i>&nbsp;Faith Kangai
+                  <i class="fa fa-user"></i>&nbsp;{{displayName}}
               </span>
               <span class="fa fa-angle-down"></span>
           </a>
-          <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+          <ul class="dropdown-menu list-group dropdown-persist w250" role="menu"
+          ng-controller="dbcheck.common.controllers.user_profile">
               <li class="list-group-item">
-                <a>
+                <a ui-sref="profile({'userId': userProfile.model.id})">
                   <span class="fa fa-user">
                   </span> Profile </a>
               </li>
               <li class="dropdown-footer">
-                <a class="">
+                <a ui-sref="auth_logout" class="">
                 <span class="fa fa-power-off pr5"></span> Logout </a>
               </li>
           </ul>
