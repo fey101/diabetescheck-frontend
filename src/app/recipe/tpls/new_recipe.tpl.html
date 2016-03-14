@@ -3,20 +3,20 @@
         <span class="panel-title">New Recipe</span>
     </div>
     <div class="panel-body">
-        <div class="sil-col-2"></div>
-        <div class="sil-col-8">
+        <div class="dbcheck-col-2"></div>
+        <div class="dbcheck-col-8">
             <form novalidate ng-submit="createRecipe()" name="recipeForm">
                 <error-alerts></error-alerts>
 
                 <fieldset ng-disabled="submitClicked">
                 <formly-form fields="fields" model="recipeForm.model" form="recipeForm">
-                    <div class="sil-col-12">
+                    <div class="dbcheck-col-12">
                         <button class="btn btn-primary" type="submit">Add Recipe</button>
                     </div>
                 </formly-form>
                 </fieldset>
             </form>
         </div>
-        <div class="sil-col-2"></div>
+        <div class="dbcheck-col-2"></div>
     </div>
 </div>
