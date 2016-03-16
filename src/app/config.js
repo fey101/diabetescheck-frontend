@@ -2,9 +2,9 @@
     "use strict";
 
     angular.module("dbcheck.config", [
-        "ui.router"
+        "ui.router",
         // "formly",
-        // "dbcheck.auth",
+        "dbcheck.auth",
         // "dbcheck.common.utilities.jsDataUtils",
         // "dbcheck.common.utilities.deserialize_drf",
         // "dbcheck.common.utilities.overide_before_validate",
@@ -12,7 +12,7 @@
         // "ngIdle",
         // "ngDialog",
         // "ngIntlTelInput",
-        // "dbcheck.common.formlyUtils"
+        "dbcheck.common.formlyUtils"
     ])
     /** contains the available homepages that a user can be redirected to.
      *  the list is also in order of preference whereby if a user is found
@@ -41,9 +41,14 @@
     .constant("TIMEOUT", window.DBCHECK_SETTINGS.TIMEOUT)
     .constant("ACTIONS.RESTRICT", window.DBCHECK_SETTINGS.ACTIONS.RESTRICT)
     // .constant("ACTIONS.CHECKERS", [
-    //     "emr.actions.actionChecker",
-    //     "emr.authorization.actionChecker"
+    //     "dbcheck.actions.actionChecker",
+    //     "dbcheck.authorization.actionChecker"
     // ])
+    .constant("PAGE.CHECKERS", [
+        "dbcheck.authentication.pageUserRequired"
+        // "dbcheck.authentication.isInitial"
+        // "dbcheck.actions.pageActions"
+    ])
 
     .config(["formlyConfigProvider", function (formlyConfigProvider) {
         // set flag to the opposite value of DEBUG,
@@ -117,10 +122,10 @@
         }
     ])
 
-    // .run(["dbcheck.actions.pageChecker", function (pageChecker) {
-    //         pageChecker.startListening();
-    //     }
-    // ])
+    .run(["dbcheck.actions.pageChecker", function (pageChecker) {
+            pageChecker.startListening();
+        }
+    ])
 
     .run(["dbcheck.common.formly.formlyConfig", function (formlyConfig) {
         formlyConfig.formlyConfigs();

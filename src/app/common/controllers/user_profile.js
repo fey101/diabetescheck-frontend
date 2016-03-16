@@ -4,7 +4,7 @@
     angular.module("dbcheck.common.controllers.userProfile", [
         "dbcheck.common.services",
         "dbcheck.resources.auth.user",
-        "dbcheck.common.services.formly",
+        "dbcheck.common.formly.users",
         "dbcheck.resources.journal.persons"
     ])
 

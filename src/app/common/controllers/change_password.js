@@ -1,15 +1,15 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.common.controllers.changePass", [
-        "emr.common.services",
-        "emr.common.formly.change_password",
-        "emr.common.errorMessages"
+    angular.module("dbcheck.common.controllers.changePass", [
+        "dbcheck.common.services",
+        "dbcheck.common.formly.change_password",
+        "dbcheck.common.errorMessages"
     ])
 
-    .controller("emr.common.controllers.changePassword", [
-        "$scope", "$state", "emr.common.formly.change_password",
-        "emr.auth.services.login", "errorMessage",
+    .controller("dbcheck.common.controllers.changePassword", [
+        "$scope", "$state", "dbcheck.common.formly.change_password",
+        "dbcheck.auth.services.login", "errorMessage",
         function ( $scope, $state, formlyService, AuthService, alertServ) {
 
             $scope.fields = formlyService.getFields();

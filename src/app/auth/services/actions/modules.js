@@ -1,11 +1,11 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.actions", [
-        "emr.auth.services.actions.actionChecker",
-        "emr.auth.services.actions.hasAction",
-        "emr.auth.services.actions.pageActions",
-        "emr.auth.services.actions.pageChecker",
-        "emr.auth.directives.emrAppActions"
+    angular.module("dbcheck.actions", [
+        // "dbcheck.auth.services.actions.actionChecker",
+        // "dbcheck.auth.services.actions.hasAction",
+        // "dbcheck.auth.services.actions.pageActions",
+        "dbcheck.auth.services.actions.pageChecker"
+        // "dbcheck.auth.directives.dbcheckAppActions"
     ]);
 })(angular);

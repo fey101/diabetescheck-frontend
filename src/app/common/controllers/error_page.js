@@ -1,17 +1,17 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.common.controllers.errorPage", [
-        "emr.auth.services"
+    angular.module("dbcheck.common.controllers.errorPage", [
+        "dbcheck.auth.services"
     ])
 
-    .controller("emr.common.controllers.errorPage",
-        ["$stateParams", "$scope", "emr.auth.services.homePage", "$state", "$log",
+    .controller("dbcheck.common.controllers.errorPage",
+        ["$stateParams", "$scope", "AVAILABLE_HOMEPAGES", "$state", "$log",
         function ($stateParams, $scope, homePageServ, $state, $log) {
             $scope.params = $stateParams;
             $log.debug("Error page");
             $scope.goHome = function () {
-                var homePage = homePageServ.determineHomePage();
+                var homePage = homePageServ[0];
                 $state.go(homePage);
             };
         }]);

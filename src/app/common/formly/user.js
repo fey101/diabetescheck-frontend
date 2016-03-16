@@ -1,7 +1,7 @@
 (function (angular) {
     "use strict";
 
-    angular.module("dbcheck.common.services.formly", [])
+    angular.module("dbcheck.common.formly.users", [])
 
     .factory("dbcheck.common.formly.user", [function () {
         /*

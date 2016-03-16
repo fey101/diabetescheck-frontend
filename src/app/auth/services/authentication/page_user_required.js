@@ -1,13 +1,13 @@
 (function (angular) {
     "use strict";
 
-    angular.module("emr.auth.services.authentication.pageUserRequired", [
+    angular.module("dbcheck.auth.services.authentication.pageUserRequired", [
         "ui.router",
-        "emr.auth.services"
+        "dbcheck.auth.services"
     ])
 
-    .factory("emr.authentication.pageUserRequired",
-        ["$log", "$injector", "emr.auth.services.login",
+    .factory("dbcheck.authentication.pageUserRequired",
+        ["$log", "$injector", "dbcheck.auth.services.login",
         function ($log, $injector, authConfig) {
             return {
                 canView: function (fromParams, toParams) {

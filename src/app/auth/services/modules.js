@@ -5,7 +5,7 @@
         "dbcheck.auth.loginService",
         "dbcheck.auth.loginFormValidationsService",
         // "dbcheck.auth.homePageService",
-        // "dbcheck.actions",
+        "dbcheck.actions",
         "dbcheck.authentication",
         "dbcheck.authorization"
         // "dbcheck.networking.interceptors"

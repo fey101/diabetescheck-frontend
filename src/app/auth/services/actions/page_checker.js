@@ -1,15 +1,15 @@
 (function (angular, _) {
     "use strict";
 
-    angular.module("emr.auth.services.actions.pageChecker", [
-        "emr.exceptions"
+    angular.module("dbcheck.auth.services.actions.pageChecker", [
+        "dbcheck.exceptions"
     ])
 
     .constant("APP_PAGE_CHECKERS", "PAGE.CHECKERS")
 
-    .factory("emr.actions.pageChecker",
+    .factory("dbcheck.actions.pageChecker",
         ["$injector", "$log", "$rootScope", "APP_PAGE_CHECKERS",
-            "emr.exceptions.Errors",
+            "dbcheck.exceptions.Errors",
         function ($injector, $log, $rootScope, APP_PAGE_CHECKERS, errs) {
             var evtListener = null;
             var has_checkers = $injector.has(APP_PAGE_CHECKERS);
@@ -20,7 +20,7 @@
             if (has_checkers) {
                 // assert we have an array
                 if (!angular.isArray(checkers_value)) {
-                    var err = errs.createError("emr.actions",
+                    var err = errs.createError("dbcheck.actions",
                         errs.ImproperlyConfigured);
                     throw err("pageChecker", APP_PAGE_CHECKERS +
                         " should be an array");

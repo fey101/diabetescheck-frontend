@@ -2,15 +2,15 @@
     "use strict";
 
     angular.module("dbcheck.common.controllers", [
-        // "emr.common.controllers.patientBanner",
+        // "dbcheck.common.controllers.patientBanner",
         "dbcheck.common.controllers.userProfile",
-        "dbcheck.common.services.formly",
-        // "emr.common.controllers.datepicker",
-        // "emr.common.controllers.datetimepicker",
+        "dbcheck.common.formly.services",
+        // "dbcheck.common.controllers.datepicker",
+        // "dbcheck.common.controllers.datetimepicker",
         "dbcheck.common.controllers.timepicker",
-        "dbcheck.common.controllers.combobox"
-        // "emr.common.controllers.formlyRepeatingSection",
-        // "emr.common.controllers.changePass",
-        // "emr.common.controllers.errorPage"
+        "dbcheck.common.controllers.combobox",
+        // "dbcheck.common.controllers.formlyRepeatingSection",
+        // "dbcheck.common.controllers.changePass",
+        "dbcheck.common.controllers.errorPage"
     ]);
 })(angular);
