@@ -1,0 +1,54 @@
+<error-alerts></error-alerts>
+<div class="t-content panel">
+    <h3 class="panel-title">What will you have for {{mealtime}}?</h3>
+    <div class="panel-body">
+        <ul>
+            <li ng-repeat="recipe in recipes">
+                <a ng-click="selectedItems.push(recipe);">{{recipe.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="t-innercontent panel">
+    <div class="panel-heading">
+        <span class="panel-title">Nutrition Value Calculator</span>
+    </div>
+    <div class="panel-body">
+    <div class="dbcheck-col-8">
+        <form novalidate  ng-submit="addToJournal()" name="plannerForm">
+            <div style="margin-bottom:60px">
+                <div class="row">
+                    <span class="dbcheck-col-4"><i>Selected food items</i></span>
+                    <span class="dbcheck-col-2"><i>Quantity</i></span>
+                    <span class="dbcheck-col-3"><i>Caloric Value(cal)</i></span>
+                    <span class="dbcheck-col-3"><i>Cholestrol levels(mg/dl)</i></span>
+                </div>
+                <div class="row" ng-repeat="item in selectedItems">
+                    <span class="dbcheck-col-4">{{item.name}}</span>
+                    <span class="dbcheck-col-2">
+                        <input class="dbcheck-col-12" type="number" ng-model="plannerForm.model"
+                            name="item {{$index}}"
+                            ng-required="true">
+                    </span>
+                    <span class="dbcheck-col-3 tx-right">{{item.calc_calories}}</span>
+                    <span class="dbcheck-col-3 tx-right">{{item.calc_cholestrol}}</span>
+                </div>
+                <br/>
+                <div class="row">
+                    <span class="dbcheck-col-4"><strong>Total</strong></span>
+                    <span class="dbcheck-col-2"><strong></strong></span>
+                    <span class="dbcheck-col-3 tx-right"><strong>{{total.calories}}</strong></span>
+                    <span class="dbcheck-col-3 tx-right"><strong>{{total.cholestrol}}</strong></i></span>
+                </div>
+            </div>
+
+            <formly-form fields="fields" model="plannerForm.model">
+            </formly-form>
+
+                <div class="dbcheck-col-12" >
+                    <button class="btn btn-primary"
+                        type="submit">Add to your journal</button>
+                </div>
+        </form>
+    </div>
+</div>

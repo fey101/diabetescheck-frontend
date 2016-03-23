@@ -1,9 +1,9 @@
 (function (angular) {
     "use strict";
 
-    angular.module("dbcheck.journal.formly.glucoseLog", [])
+    angular.module("dbcheck.journal.formly.medicationLog", [])
 
-    .factory("dbcheck.journal.formly.log_glucose", [function () {
+    .factory("dbcheck.journal.formly.log_medication", [function () {
         /*
         *   This service hold the fields necessary for creating new
         *   recipe. Fields are rendered as JSON by the awesome angular formly
@@ -50,22 +50,6 @@
                         "required": true
                     },
                     "type": "timepicker"
-                },
-                {
-                    "key": "glycemic_index",
-                    "ngModelElAttrs": {
-                        "tabindex" : "3"
-                    },
-                    "defaultValue": 100,
-                    "templateOptions": {
-                        "label": "Blood glucose levels (mg/dl)",
-                        "reqValidationMsg": "This field is required",
-                        "required": true,
-                        "min": 20,
-                        "max": 600,
-                        "type": "number"
-                    },
-                    "type": "input"
                 }
             ];
             return fields;

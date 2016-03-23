@@ -67,6 +67,18 @@
                         templateUrl: "auth/tpls/change_password.tpl.html"
                     }
                 }
+            })
+            .state("auth_create_account", {
+                parent: "auth_base",
+                requireUser: false,
+                showErrorPage: false,
+                url: "/account/signup/",
+                views:{
+                    "form":{
+                        // controller: "dbcheck.common.controllers.signup",
+                        templateUrl: "auth/tpls/registration/signup.base_tpl.html"
+                    }
+                }
             });
     }]);
 

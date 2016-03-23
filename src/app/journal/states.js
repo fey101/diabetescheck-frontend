@@ -69,6 +69,7 @@
                 url: "journal/fitness",
                 views: {
                     "content@": {
+                        controller: "dbcheck.journal.controllers.fitness_log",
                         templateUrl: "journal/tpls/fitness_log.tpl.html"
                     },
                     "pageactions@": {

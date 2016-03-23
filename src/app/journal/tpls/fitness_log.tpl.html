@@ -1,1 +1,49 @@
-fitness log here
+<error-alerts></error-alerts>
+<div class="panel">
+    <div class="panel-heading">
+        <span class="panel-title">Fitness Log</span>
+    </div>
+    <div class="panel-body">
+        <div class="dbcheck-col-2"></div>
+        <div class="dbcheck-col-8">
+
+            <form novalidate ng-submit="logActivity()" name="fitnessLogForm">
+                <fieldset ng-disabled="submitClicked">
+                <formly-form fields="fields" model="fitnessLogForm.model" form="fitnessLogForm">
+                    <div class="dbcheck-col-12">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </formly-form>
+                </fieldset>
+            </form>
+
+            <div ng-if="submitClicked">
+                <label>Interpreting the results given:</label>
+                <div class="loader"></div>
+            </div>
+
+        </div>
+        <div class="dbcheck-col-2"></div>
+    </div>
+    <div class="panel-body">
+
+        <div class="dbcheck-col-12">
+            <br/>
+            <div class="row">
+                <span><strong>Summary of Exercise Routines and Related Weight Loss</strong></span>
+            </div>
+            <br/>
+            <div class="row">
+                <span class="dbcheck-col-4"><i>Exercise Type</i></span>
+                <span class="dbcheck-col-2"><i>Duration</i></span>
+                <span class="dbcheck-col-3"><i>Calories Burnt</i></span>
+            </div>
+            <div class="row" ng-repeat="item in Routine">
+                <span class="dbcheck-col-4">{{item.name}}</span>
+                <span class="dbcheck-col-3">{{item.duration}}</span>
+                <span class="dbcheck-col-3">{{item.calories_burnt}}</span>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,3 +1,4 @@
+<error-alerts></error-alerts>
 <div class="panel">
     <div class="panel-heading">
         <span class="panel-title">Blood Glucose Log</span>
@@ -6,8 +7,6 @@
         <div class="dbcheck-col-2"></div>
         <div class="dbcheck-col-8">
             <form novalidate ng-submit="logBloodGlucose()" name="glucoseLogForm">
-                <error-alerts></error-alerts>
-
                 <fieldset ng-disabled="submitClicked">
                 <formly-form fields="fields" model="glucoseLogForm.model" form="glucoseLogForm">
                     <div class="dbcheck-col-12">
@@ -16,6 +15,7 @@
                 </formly-form>
                 </fieldset>
             </form>
+
             <div ng-if="submitClicked">
                 <label>Interpreting the results given:</label>
                 <div class="loader"></div>

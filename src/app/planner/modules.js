@@ -3,7 +3,7 @@
 
     angular.module("dbcheck.planner",[
         "dbcheck.planner.controllers",
-        "dbcheck.planner.states"
-        // "dbcheck.planner.services"
+        "dbcheck.planner.states",
+        "dbcheck.planner.services.formly"
     ]);
 })(angular);

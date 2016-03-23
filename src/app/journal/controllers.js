@@ -29,7 +29,9 @@
                 {
                     title: "Why do I need to take blood glucose readings?",
                     content: "Regular monitoring of blood glucose provides" +
-                    "a good overview about metabolic condition."
+                    " a good overview about metabolic condition. To achieve this," +
+                    " it is important to take blood glucose readings at the same" +
+                    " time each day."
                 },
                 {
                     title: "How do I know when it's appropriate to take the" +
@@ -51,6 +53,53 @@
             ];
 
         }
-    ]);
+    ])
+    .controller("dbcheck.journal.controllers.fitness_log",[
+        "$scope", "$state", "errorMessage", "dbcheck.journal.formly.fitness_log",
+        function ( $scope, $state, alert, formlyService) {
+            $scope.fitnessLogForm = {};
+            $scope.fields = formlyService.getFields();
 
+            $scope.logActivity = function () {
+                if ($scope.fitnessLogForm.$valid) {
+                    $scope.alert = false;
+                    $scope.submitClicked = true;
+                }
+                else {
+                    var data = {
+                        "data": {
+                            "error": "Please correct the" +
+                            " errors on the form"
+                        }
+                    };
+                    $scope.submitClicked = false;
+                    $scope.alert = alert.showError(data, "Error");
+                }
+            };
+        }
+    ])
+    .controller("dbcheck.journal.controllers.medication_log",[
+        "$scope", "$state", "errorMessage", "dbcheck.journal.formly.log_medication",
+        function ( $scope, $state, alert, formlyService) {
+            $scope.medicationLogForm = {};
+            $scope.fields = formlyService.getFields();
+
+            $scope.logMedication = function () {
+                if ($scope.medicationLogForm.$valid) {
+                    $scope.alert = false;
+                    $scope.submitClicked = true;
+                }
+                else {
+                    var data = {
+                        "data": {
+                            "error": "Please correct the" +
+                            " errors on the form"
+                        }
+                    };
+                    $scope.submitClicked = false;
+                    $scope.alert = alert.showError(data, "Error");
+                }
+            };
+        }
+    ]);
 })(angular);
