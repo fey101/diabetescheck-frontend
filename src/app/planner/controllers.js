@@ -35,15 +35,6 @@
             $scope.fields = formlyService.getFields();
             $scope.selectedItems = [];
 
-            // recipeLink.recipes.find($state.params.recipeID).then(
-            //     function(object) {
-            //         $scope.selectedItems.push(object);
-            //     },
-            //     function(error) {
-            //         $scope.alert = error_svc.showErr(error, "Error");
-            //     }
-            // );
-
             console.log($scope.plannerForm);
             console.log($scope.fooditems);
             for ( var i = 0; i < $scope.selectedItems.length; i++ ) {

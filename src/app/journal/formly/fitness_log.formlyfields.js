@@ -21,7 +21,7 @@
                         "tabindex" : "1"
                     },
                     "templateOptions": {
-                        "label": "exerciseRoutine",
+                        "label": "exercise type",
                         "labels": ["name"],
                         "options": [],
                         "optionsResource": "exerciseType",
@@ -39,7 +39,8 @@
                     "defaultValue": "00:30:00",
                     "templateOptions": {
                         "label": "Duration",
-                        "required": true
+                        "required": true,
+                        "type": "datetime"
                     },
                     "type": "timepicker"
                 }

@@ -18,27 +18,27 @@
         <form novalidate  ng-submit="addToJournal()" name="plannerForm">
             <div style="margin-bottom:60px">
                 <div class="row">
-                    <span class="dbcheck-col-4"><i>Selected food items</i></span>
-                    <span class="dbcheck-col-2"><i>Quantity</i></span>
-                    <span class="dbcheck-col-3"><i>Caloric Value(cal)</i></span>
-                    <span class="dbcheck-col-3"><i>Cholestrol levels(mg/dl)</i></span>
+                    <div class="dbcheck-col-4"><i>Selected food items</i></div>
+                    <div class="dbcheck-col-2"><i>Quantity</i></div>
+                    <div class="dbcheck-col-3 tx-right"><i>Caloric Value(cal)</i></div>
+                    <div class="dbcheck-col-3 tx-right"><i>Cholestrol levels(mg/dl)</i></div>
                 </div>
                 <div class="row" ng-repeat="item in selectedItems">
-                    <span class="dbcheck-col-4">{{item.name}}</span>
-                    <span class="dbcheck-col-2">
-                        <input class="dbcheck-col-12" type="number" ng-model="plannerForm.model"
+                    <div class="dbcheck-col-4">{{item.name}}</div>
+                    <div class="dbcheck-col-2">
+                        <input class="dbcheck-col-10" type="number" ng-model="plannerForm.model.quantity"
                             name="item {{$index}}"
                             ng-required="true">
-                    </span>
-                    <span class="dbcheck-col-3 tx-right">{{item.calc_calories}}</span>
-                    <span class="dbcheck-col-3 tx-right">{{item.calc_cholestrol}}</span>
+                    </div>
+                    <div class="dbcheck-col-3 tx-right">{{item.calc_calories}}</div>
+                    <div class="dbcheck-col-3 tx-right">{{item.calc_cholestrol}}</div>
                 </div>
                 <br/>
                 <div class="row">
-                    <span class="dbcheck-col-4"><strong>Total</strong></span>
-                    <span class="dbcheck-col-2"><strong></strong></span>
-                    <span class="dbcheck-col-3 tx-right"><strong>{{total.calories}}</strong></span>
-                    <span class="dbcheck-col-3 tx-right"><strong>{{total.cholestrol}}</strong></i></span>
+                    <div class="dbcheck-col-4"><strong>Total</strong></div>
+                    <div class="dbcheck-col-2"><strong></strong></div>
+                    <div class="dbcheck-col-3 tx-right"><strong>{{total.calories}}</strong></div>
+                    <div class="dbcheck-col-3 tx-right"><strong>{{total.cholestrol}}</strong></i></div>
                 </div>
             </div>
 

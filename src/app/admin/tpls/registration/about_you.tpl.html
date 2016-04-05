@@ -1,0 +1,25 @@
+<div class="tab-pane active" role="tabpanel" id="step3">
+    <h3 class="active-tab">A little About Yourself</h3>
+    <div class="wizard-body sil-col-offset-2 sil-col-8">
+    <form novalidate class="form-group" name="aboutYouForm">
+        <error-alerts></error-alerts>
+        <fieldset ng-disabled="submitClicked">
+            <formly-form fields="fields" model="aboutYouForm.model"
+                form="aboutYouForm">
+            </formly-form>
+        </form>
+        <div class="pull-left">
+            <a class="btn btn-default"
+                ui-sref="create_account.related_conditions">
+                <span>Back</span>
+                <span class="fa fa-arrow-circle-left"></span>
+            </a>
+        </div>
+        <div>
+            <a class="btn btn-primary text-center" ng-click="saveDetails()">
+                <span>Next</span>
+                <span class="fa fa-arrow-circle-right"></span>
+            </a>
+        </div>
+    </fieldset>
+</div>

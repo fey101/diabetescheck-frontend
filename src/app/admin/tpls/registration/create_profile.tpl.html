@@ -1,0 +1,23 @@
+<div class="tab-pane active" role="tabpanel" id="step4">
+    <h3 class="active-tab">Create Your Profile</h3>
+    <div class="wizard-body sil-col-offset-2 sil-col-8">
+    <form novalidate class="form-group" name="profileForm" ng-submit="submitDetails()">
+        <error-alerts></error-alerts>
+        <fieldset ng-disabled="submitClicked">
+            <formly-form fields ="fields" model="profileForm.model"
+                form="profileForm">
+            </formly-form>
+
+            <div class="pull-left">
+                <a class="btn btn-default"
+                    ui-sref="create_account.about_you">
+                    <span>Back</span>
+                    <span class="fa fa-arrow-circle-left"></span>
+                </a>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

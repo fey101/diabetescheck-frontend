@@ -5,7 +5,7 @@
         // "dbcheck.common.controllers.patientBanner",
         "dbcheck.common.controllers.userProfile",
         "dbcheck.common.formly.services",
-        // "dbcheck.common.controllers.datepicker",
+        "dbcheck.common.controllers.datepicker",
         // "dbcheck.common.controllers.datetimepicker",
         "dbcheck.common.controllers.timepicker",
         "dbcheck.common.controllers.combobox",

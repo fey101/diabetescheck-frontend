@@ -65,7 +65,7 @@
                         "reqValidationMsg": "Please provide the time it" +
                             " takes to get recipe ready",
                         "required": true,
-                        "type": "text"
+                        "type": "time"
                     },
                     "type": "timepicker"
                 },

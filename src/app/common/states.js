@@ -31,10 +31,6 @@
                     "indexsidebar@" : {
                         templateUrl: "common/tpls/sidebars/" +
                                      "user_sidebar.tpl.html"
-                    },
-                    "pageactions@":{
-                        templateUrl:"common/tpls/pageactions/" +
-                                    "common_user_actions.tpl.html"
                     }
                 }
             })

@@ -1,0 +1,18 @@
+<div class="tab-pane active" role="tabpanel" id="step1">
+    <h3 class="active-tab">What Would You Like To Manage</h3>
+    <div class="wizard-body dbcheck-col-offset-2 dbcheck-col-8">
+    <form novalidate class="form-group" name="dbmForm">
+        <error-alerts></error-alerts>
+        <fieldset ng-disabled="submitClicked">
+            <formly-form model="formData" fields="dbmfields"
+                form="dbmForm">
+            </formly-form>
+        </form>
+            <div class="text-center">
+                <a ng-click="saveDbm(dbmForm.$valid)" class="btn btn-primary">
+                    <span>Next</span>
+                    <span class="fa fa-arrow-circle-right">
+                </a>
+            </div>
+            </fieldset>
+</div>
