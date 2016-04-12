@@ -16,7 +16,7 @@
                     var sugarLevel = $scope.glucoseLogForm.model.glycemic_index;
                     var period = $scope.glucoseLogForm.model.period_taken;
                     var user = loginservice.getUser();
-                    var isDiabetic = user.person_health.diabetic;
+                    var isDiabetic = user.person.person_health.diabetic;
                     var results;
                     if (period === "fasting glucose") {
                         if (sugarLevel < 50) {
