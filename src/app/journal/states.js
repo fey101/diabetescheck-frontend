@@ -26,6 +26,10 @@
                         controller: "dbcheck.journal.controllers.blood_glucose",
                         templateUrl: "journal/tpls/blood_glucose.tpl.html"
                     },
+                    // "results@journal.bloodGlucose":{
+                    //     templateUrl: "journal/tpls/glucose_results.tpl.html",
+                    //     controller: "dbcheck.journal.controllers.blood_glucose"
+                    // },
                     "pageactions@": {
                         templateUrl: "journal/tpls/pageactions/" +
                             "pageactions_detailView.tpl.html"
@@ -39,22 +43,8 @@
                 url: "journal/diet",
                 views: {
                     "content@": {
+                        controller: "dbcheck.journal.controllers.food_log",
                         templateUrl: "journal/tpls/dietary_log.tpl.html"
-                    },
-                    "pageactions@": {
-                        templateUrl: "journal/tpls/pageactions/" +
-                            "pageactions_detailView.tpl.html"
-                    }
-                }
-            })
-            .state("journal.medication", {
-                ncyBreadcrumb: {
-                    label: "Medication"
-                },
-                url: "journal/medication",
-                views: {
-                    "content@": {
-                        templateUrl: "journal/tpls/medication_log.tpl.html"
                     },
                     "pageactions@": {
                         templateUrl: "journal/tpls/pageactions/" +

@@ -27,21 +27,15 @@
     </div>
     <div class="panel-body">
 
-        <div class="dbcheck-col-12">
-            <br/>
-            <div class="row">
-                <span><strong>Summary of Exercise Routines and Related Weight Loss</strong></span>
-            </div>
-            <br/>
-            <div class="row">
-                <span class="dbcheck-col-4"><i>Exercise Type</i></span>
-                <span class="dbcheck-col-2"><i>Duration</i></span>
-                <span class="dbcheck-col-3"><i>Calories Burnt</i></span>
-            </div>
-            <div class="row" ng-repeat="item in Routine">
-                <span class="dbcheck-col-4">{{item.name}}</span>
-                <span class="dbcheck-col-3">{{item.duration}}</span>
-                <span class="dbcheck-col-3">{{item.calories_burnt}}</span>
+        <div>
+            <span><strong>Did You Know?</strong></span>
+            <div class="well" ng-repeat="group in groups">
+                <a data-toggle="collapse" data-target="#toggle-content-{{$index}}">
+                    <span>{{group.title}}</span>
+                </a>
+                <div id="toggle-content-{{$index}}" class="collapse">
+                    <div>{{group.content}}</div>
+                </div>
             </div>
         </div>
 

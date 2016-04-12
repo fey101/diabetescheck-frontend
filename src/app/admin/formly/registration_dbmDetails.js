@@ -16,7 +16,7 @@
         var getFields = function () {
             var fields = [
                 {
-                    "key": "diabetes_status",
+                    "key": "diabetic",
                     "ngModelElAttrs": {
                         "tabindex" : "1"
                     },
@@ -113,7 +113,7 @@
                         "label": "Current weight in kilograms (Kgs)",
                         "required": true,
                         "reqValidationMsg": "This field is required",
-                        "min": 1,
+                        "min": 30,
                         "max": 500,
                         "type": "number"
                     },
@@ -135,20 +135,30 @@
                     "type": "input"
                 },
                 {
-                    "key": "gender",
+                    "key": "daily_activity_level",
                     "ngModelElAttrs": {
                         "tabindex" : "3"
                     },
                     "templateOptions": {
-                        "label": "Gender",
+                        "label": "How would you describe your" +
+                        "normal daily activity level",
                         "options": [
                             {
-                                "name": "Male",
-                                "value": 1
+                                "name": "You spend the whole day in bed" +
+                                "/No movements",
+                                "value": "in bed"
                             },
                             {
-                                "name": "Female",
-                                "value": 2
+                                "name": "High",
+                                "value": "high"
+                            },
+                            {
+                                "name": "Moderate",
+                                "value": "moderate"
+                            },
+                            {
+                                "name": "Low",
+                                "value": "low"
                             }
                         ],
                         "reqValidationMsg": "This field is required",
@@ -157,22 +167,38 @@
                     "type": "radio"
                 },
                 {
-                    "key": "date_of_birth",
-                    "ngModelElAttrs" : {
+                    "key": "exercise_freq",
+                    "ngModelElAttrs": {
                         "tabindex" : "4"
                     },
                     "templateOptions": {
-                        "description": "Date format should be (DD-MM-YYYY)",
-                        "label": "Birthdate",
-                        "placeholder": "DD-MM-YYYY",
-                        "reqValidationMsg": "Please provide your " +
-                        "Date of Birth",
-                        "required": true,
-                        "type": "text"
-                    },
-                    "type": "datepicker"
-                }
+                        "label": "How frequent is your scheduled time for exercises",
+                        "labels": ["display"],
+                        "options": [
+                            {
+                                "display": "Random",
+                                "value": "Random"
+                            },
+                            {
+                                "display": "15 minutes",
+                                "value": "15 min"
+                            },
+                            {
+                                "display": "30 minutes",
+                                "value": "30 min"
+                            },
+                            {
+                                "display": "1 hour/above 1 hour",
+                                "value": "1 hr or more"
+                            }
 
+                        ],
+                        "valueProp": "value",
+                        "required": true,
+                        "reqValidationMsg": "This field is required"
+                    },
+                    "type": "combobox"
+                }
             ];
             return fields;
         };
@@ -225,9 +251,47 @@
                     "type": "input"
                 },
                 {
-                    "key": "email",
+                    "key": "gender",
                     "ngModelElAttrs": {
                         "tabindex" : "3"
+                    },
+                    "templateOptions": {
+                        "label": "Gender",
+                        "options": [
+                            {
+                                "name": "Male",
+                                "value": 1
+                            },
+                            {
+                                "name": "Female",
+                                "value": 2
+                            }
+                        ],
+                        "reqValidationMsg": "This field is required",
+                        "required": true
+                    },
+                    "type": "radio"
+                },
+                {
+                    "key": "date_of_birth",
+                    "ngModelElAttrs" : {
+                        "tabindex" : "4"
+                    },
+                    "templateOptions": {
+                        "description": "Date format should be (DD-MM-YYYY)",
+                        "label": "Birthdate",
+                        "placeholder": "DD-MM-YYYY",
+                        "reqValidationMsg": "Please provide your " +
+                        "Date of Birth",
+                        "required": true,
+                        "type": "text"
+                    },
+                    "type": "horizontalDatepicker"
+                },
+                {
+                    "key": "email",
+                    "ngModelElAttrs": {
+                        "tabindex" : "5"
                     },
                     "templateOptions": {
                         "addonLeft": {
@@ -243,7 +307,7 @@
                 {
                     "key": "password",
                     "ngModelElAttrs": {
-                        "tabindex" : "4"
+                        "tabindex" : "6"
                     },
                     "templateOptions": {
                         "addonLeft": {
@@ -263,7 +327,7 @@
                     },
                     "key": "confirm_password",
                     "ngModelAttrs": {
-                        "tabindex" : "5",
+                        "tabindex" : "7",
                         "pwCheckerVal": {
                             "attribute": "pw-checker"
                         }

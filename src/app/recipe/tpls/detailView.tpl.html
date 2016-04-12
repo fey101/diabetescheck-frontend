@@ -1,21 +1,24 @@
 <div>
     <h3>{{recipe.name}}</h3>
-    <hr/>
-    <div col-md-8 class="pull-left">
-        <article class="recipe-hold-info">
-            <div>
+    <div>
+        <div class="recipe-hold-info" style="margin-bottom:40px">
+            <div class="dbcheck-col-8">
                 <img ng-src="{{recipe.image}}" err-src="../assets/img/recipe_unavailable.jpeg"
                   id="recipe-image"
                   alt="Recipe Image"
                   title="Recipe Image"
                   class="img img-thumbnail img-responsive">
-            </div><br/>
-            <div>
-                <strong>Nutrition Details:</strong><br/>
-                per serving<br/>
-                {{recipe.food_items.nutritionalValue}}
             </div>
-        </article>
+            <div class="dbcheck-col-4">
+                <h4><strong>Nutrition Details:</strong></h4>
+                <strong>per serving<br/></strong>
+                <div ng-repeat="nutrient in recipe.nutrients_list">
+                    <span>{{nutrient.name}}  </span>
+                    <span>{{nutrient.quantity}}  </span>
+                    <span>{{nutrient.unit}}</span>
+                </div>
+            </div>
+        </div>
 
         <div>
             <span><strong>Serving: {{recipe.serving}}</strong></span> |
@@ -26,7 +29,7 @@
             <strong>Ingredients:</strong>
             <ul>
                 <li ng-repeat="item in recipe.ingredients_list">
-                {{item.fooditem_nutrients[0].amount}} {{item.fooditem_nutrients[0].measurement_unit}} {{item.name}} {{item.description}}</li>
+                {{item.amount}} {{item.unit_of_measure}} {{item.name}} {{item.description}}</li>
             </ul>
         </div>
 

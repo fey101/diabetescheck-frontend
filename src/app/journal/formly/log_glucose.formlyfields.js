@@ -22,13 +22,28 @@
                     },
                     "templateOptions": {
                         "label": "When was the reading taken?",
-                        "labels": ["value"],
+                        "labels": ["display"],
                         "options": [
-                            {"value": "Before breakfast"},
-                            {"value": "Before Lunch"},
-                            {"value": "Before supper/dinner"},
-                            {"value": "Before going to bed"},
-                            {"value": "Other"}
+                            {
+                                "display": "After 8 hours or more without a meal",
+                                "value": "fasting glucose"
+                            },
+                            {
+                                "display": "Before breakfast/ Out of bed",
+                                "value": "fasting glucose"
+                            },
+                            {
+                                "display": "Before lunch/supper/dinner",
+                                "value": "before meal"
+                            },
+                            {
+                                "display": "After a meal",
+                                "value": "after meal"
+                            },
+                            {
+                                "display": "2/3 hours after a meal",
+                                "value": "after meal"
+                            }
                         ],
                         "valueProp": "value",
                         "reqValidationMsg": "This field is required",
@@ -36,21 +51,21 @@
                     },
                     "type": "combobox"
                 },
-                {
-                    "hideExpression":
-                        "model.period_taken !== 'Other'",
-                    "key": "logging_time",
-                    "ngModelElAttrs": {
-                        "tabindex": "2"
-                    },
-                    //todo: create a fn to supply current time
-                    "defaultValue": "time.now",
-                    "templateOptions": {
-                        "label": "How many hours after a meal was reading taken?",
-                        "required": true
-                    },
-                    "type": "timepicker"
-                },
+                // {
+                //     "hideExpression":
+                //         "model.period_taken !== 'Other'",
+                //     "key": "logging_time",
+                //     "ngModelElAttrs": {
+                //         "tabindex": "2"
+                //     },
+                //     //todo: create a fn to supply current time
+                //     "defaultValue": "time.now",
+                //     "templateOptions": {
+                //         "label": "How many hours after a meal was reading taken?",
+                //         "required": true
+                //     },
+                //     "type": "timepicker"
+                // },
                 {
                     "key": "glycemic_index",
                     "ngModelElAttrs": {
@@ -61,8 +76,8 @@
                         "label": "Blood glucose levels (mg/dl)",
                         "reqValidationMsg": "This field is required",
                         "required": true,
-                        "min": 20,
-                        "max": 600,
+                        "min": 0,
+                        "max": 300,
                         "type": "number"
                     },
                     "type": "input"
