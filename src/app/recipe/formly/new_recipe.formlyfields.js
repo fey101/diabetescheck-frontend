@@ -84,25 +84,7 @@
                         "type": "number"
                     },
                     "type": "input"
-                },
-                {
-                    "key": "person",
-                    "defaultValue": 1,
-                    "ngModelElAttrs": {
-                        "tabindex" : "6"
-                    },
-                    "templateOptions": {
-                        "label": "Login Name",
-                        "labels": ["person_display"],
-                        "options": [],
-                        "optionsResource": "person",
-                        "valueProp": "id",
-                        "required": true,
-                        "reqValidationMsg": "Please provide your username"
-                    },
-                    "type": "combobox"
                 }
-
             ];
             return fields;
         };

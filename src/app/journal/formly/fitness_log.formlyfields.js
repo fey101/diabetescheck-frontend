@@ -16,15 +16,15 @@
         var getFields = function () {
             var fields = [
                 {
-                    "key": "exercise",
+                    "key": "exercise_type",
                     "ngModelElAttrs": {
                         "tabindex" : "1"
                     },
                     "templateOptions": {
-                        "label": "exercise type",
+                        "label": "Exercise type",
                         "labels": ["name"],
                         "options": [],
-                        "optionsResource": "exerciseType",
+                        "optionsResource": "exerciseRoutine",
                         "valueProp": "id",
                         "reqValidationMsg": "This field is required",
                         "required": true
