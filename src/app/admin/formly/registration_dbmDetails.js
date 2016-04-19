@@ -91,7 +91,7 @@
                         "reqValidationMsg": "This field is required",
                         "required": true
                     },
-                    "type": "multiCheckbox"
+                    "type": "radio"
                 }
             ];
             return fields;

@@ -4,7 +4,7 @@
     <form novalidate class="form-group" name="conditionsForm">
         <error-alerts></error-alerts>
         <fieldset ng-disabled="submitClicked">
-            <formly-form fields="fields" model="conditionsForm.model"
+            <formly-form fields="fields" model="conditionsFormData"
                 form="conditionsForm">
             </formly-form>
         </form>
@@ -16,7 +16,7 @@
             </a>
         </div>
         <div>
-            <a class="btn btn-primary text-center" ng-click="saveConditions()">
+            <a class="btn btn-primary text-center" ng-click="saveConditions(conditionsForm.$valid)">
                 <span>Next</span>
                 <span class="fa fa-arrow-circle-right"></span>
             </a>

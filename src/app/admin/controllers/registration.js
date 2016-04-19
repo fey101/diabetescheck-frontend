@@ -3,15 +3,16 @@
 
     angular.module("dbcheck.admin.registration.controllers", [
         "dbcheck.admin.formly.dbmDetails",
-        "dbcheck.admin.services.multistepValidation"
+        "dbcheck.admin.services.multistepValidation",
+        "dbcheck.admin.services.registrationData"
     ])
 
     .controller("dbcheck.admin.controller.dbmDetails", [
         "$scope", "$state", "errorMessage",
         "registrationForms", "dbcheck.admin.multistepValidation",
-        "dbcheck.admin.formly.dbm",
+        "dbcheck.admin.formly.dbm", "registrationData",
         function ($scope, $state, alert, registrationForms,
-            multistepValidation, fields) {
+            multistepValidation, fields, regData) {
             $scope.formData = {};
             $scope.formStepSubmitted = false;
 
@@ -19,8 +20,8 @@
 
             $scope.saveDbm = function (isFormValid) {
                 $scope.formStepSubmitted = true;
-
                 multistepValidation.validateForm(isFormValid);
+                regData.setWhatToMange($scope.formData);
                 $state.go("create_account.related_conditions", {
                     diabetes_status: $scope.formData.diabetes_status
                 });
@@ -31,10 +32,10 @@
     .controller("dbcheck.admin.controller.related_conditions", [
         "$scope", "$state","errorMessage",
         "registrationForms", "dbcheck.admin.multistepValidation",
-        "dbcheck.admin.formly.related_conditions",
+        "dbcheck.admin.formly.related_conditions","registrationData",
         function ($scope, $state, alert, registrationForms,
-            multistepValidation, fields) {
-            $scope.conditionsForm = {};
+            multistepValidation, fields, regData) {
+            $scope.conditionsFormData = {};
             $scope.formStepSubmitted = false;
 
             $scope.fields = fields.getFields();
@@ -43,6 +44,7 @@
                 $scope.formStepSubmitted = true;
 
                 multistepValidation.validateForm(isFormValid);
+                regData.setRelatedConditions($scope.conditionsFormData);
                 $state.go("create_account.about_you");
             };
 
@@ -51,17 +53,17 @@
     .controller("dbcheck.admin.controller.about_you", [
         "$scope", "$state","errorMessage",
         "registrationForms", "dbcheck.admin.multistepValidation",
-        "dbcheck.admin.formly.aboutYou",
+        "dbcheck.admin.formly.aboutYou","registrationData",
         function ($scope, $state, alert, registrationForms,
-            multistepValidation, fields) {
-            $scope.aboutYouForm = {};
+            multistepValidation, fields, regData) {
+            $scope.aboutYouFormData = {};
             $scope.formStepSubmitted = false;
 
             $scope.fields = fields.getFields();
 
             $scope.saveDetails = function (isFormValid) {
                 $scope.formStepSubmitted = true;
-
+                regData.setAboutYou($scope.aboutYouFormData);
                 multistepValidation.validateForm(isFormValid);
                 $state.go("create_account.create_profile");
             };
@@ -71,10 +73,10 @@
     .controller("dbcheck.admin.controller.create_profile", [
         "$scope", "$state", "moment", "errorMessage",
         "registrationForms", "dbcheck.admin.multistepValidation",
-        "dbcheck.admin.formly.create_profile",
+        "dbcheck.admin.formly.create_profile","registrationData",
         function ($scope, $state, moment, alert, registrationForms,
-            multistepValidation, fields) {
-            $scope.profileForm = {};
+            multistepValidation, fields, regData) {
+            $scope.profileFormData = {};
             $scope.formStepSubmitted = false;
 
             $scope.fields = fields.getFields();
@@ -83,7 +85,9 @@
                 $scope.submitClicked = true;
                 $scope.formStepSubmitted = true;
 
-                multistepValidation.validateForm(isFormValid);
+                // multistepValidation.validateForm(isFormValid);
+                regData.setProfile($scope.profileFormData);
+                console.log(regData.getData());
 
                 // var dob = moment($scope.formData.date_of_birth);
                 // var personDob = dob.format("YYYY-MM-DD");
@@ -108,7 +112,7 @@
                 //                 id_value: $scope.formData.id_value,
                 //                 person: personData.id
                 //             };
-                //             linker.personID.create(patientIDModel).then(function () {
+                //          linker.personID.create(patientIDModel).then(function () {
                 //                 $scope.registerPatient($scope.patient);
                 //             }, function (err) {
                 //                 $scope.submitClicked = false;
