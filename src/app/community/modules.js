@@ -3,7 +3,7 @@
 
     angular.module("dbcheck.community",[
         "dbcheck.community.controllers",
-        "dbcheck.community.routes"
-        // "dbcheck.community.services"
+        "dbcheck.community.routes",
+        "dbcheck.community.resources"
     ]);
 })(angular);
