@@ -82,6 +82,7 @@
             $scope.fields = fields.getFields();
 
             $scope.submitDetails = function (isFormValid) {
+                console.log("hello");
                 $scope.submitClicked = true;
                 $scope.formStepSubmitted = true;
 
@@ -131,6 +132,7 @@
                 //             $scope.submitClicked = false;
                 //             $scope.alert = alert.showError(err);
                 //         });
+                console.log("am here");
 
                 $state.go("auth_login");
             };
