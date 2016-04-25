@@ -321,29 +321,6 @@
                     },
                     "type": "input"
                 }
-                // {
-                //     "expressionProperties": {
-                //         "templateOptions.pwCheckerVal": "model.password"
-                //     },
-                //     "key": "confirm_password",
-                //     "ngModelAttrs": {
-                //         "tabindex" : "7",
-                //         "pwCheckerVal": {
-                //             "attribute": "pw-checker"
-                //         }
-                //     },
-                //     "templateOptions": {
-                //         "addonLeft": {
-                //             "class": "fa fa-lock"
-                //         },
-                //         "label": "Confirm password",
-                //         "reqValidationMsg": "Please re-enter the" +
-                //         " selected password here",
-                //         "required": true,
-                //         "type": "password"
-                //     },
-                //     "type": "input"
-                // }
 
             ];
             return fields;
