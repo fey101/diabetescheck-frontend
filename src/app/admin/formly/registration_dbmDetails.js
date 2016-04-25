@@ -4,15 +4,7 @@
     angular.module("dbcheck.admin.formly.dbmDetails", [])
 
     .factory("dbcheck.admin.formly.dbm", [function () {
-        /*
-        *   This service hold the fields necessary for creating new
-        *   recipe. Fields are rendered as JSON by the awesome angular formly
-        *   form directive.
-        *
-        *   Defining forms fields this way(other than puting them in a JSON file)
-        *   enables us to take advantage of the full power of angular-formly
-        *   and use it's validation that is easily implemented using JS
-        */
+
         var getFields = function () {
             var fields = [
                 {
@@ -89,9 +81,9 @@
                             }
                         ],
                         "reqValidationMsg": "This field is required",
-                        "required": true
+                        "required": false
                     },
-                    "type": "radio"
+                    "type": "multiCheckbox"
                 }
             ];
             return fields;
@@ -122,8 +114,10 @@
                 {
                     "key": "height",
                     "ngModelElAttrs": {
-                        "tabindex" : "2"
+                        "tabindex" : "2",
+                        "step": "0.01"
                     },
+                    "defaultValue": 1.5,
                     "templateOptions": {
                         "label": "Height in metres (M)",
                         "required": true,

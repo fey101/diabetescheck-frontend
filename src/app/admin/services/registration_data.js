@@ -1,23 +1,23 @@
-(function(angular){
+(function(angular) {
     "use strict";
     angular.module("dbcheck.admin.services.registrationData", [])
-    .factory("registrationData", function(){
+    .factory("registrationData", function() {
         var registrationData = {};
 
         return {
-            setWhatToMange:  function(toManage){
+            setWhatToMange: function(toManage) {
                 _.extend(registrationData, toManage);
             },
-            setRelatedConditions: function(relatedConditions){
+            setRelatedConditions: function(relatedConditions) {
                 _.extend(registrationData, relatedConditions);
             },
-            setAboutYou: function(aboutYou){
+            setAboutYou: function(aboutYou) {
                 _.extend(registrationData, aboutYou);
             },
-            setProfile: function(profile){
+            setProfile: function(profile) {
                 _.extend(registrationData, profile);
             },
-            getData: function(){
+            getData: function() {
                 return registrationData;
             }
         };
