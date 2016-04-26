@@ -3,7 +3,7 @@
     <div class="wizard-body sil-col-offset-2 sil-col-8">
     <form novalidate class="form-group" name="aboutYouForm">
         <error-alerts></error-alerts>
-        <fieldset ng-disabled="submitClicked">
+        <fieldset ng-disabled="formStepSubmitted">
             <formly-form fields="fields" model="aboutYouFormData"
                 form="aboutYouForm">
             </formly-form>
@@ -16,7 +16,7 @@
             </a>
         </div>
         <div>
-            <a class="btn btn-primary text-center" ng-click="saveDetails()">
+            <a class="btn btn-primary text-center" ng-click="saveDetails(aboutYouForm.$valid)">
                 <span>Next</span>
                 <span class="fa fa-arrow-circle-right"></span>
             </a>

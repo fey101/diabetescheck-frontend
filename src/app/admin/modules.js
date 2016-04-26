@@ -7,6 +7,7 @@
         "dbcheck.admin.routes",
         "dbcheck.admin.registration.states",
         "dbcheck.admin.services",
-        "dbcheck.admin.services.formly"
+        "dbcheck.admin.services.formly",
+        "dbcheck.admin.resources"
     ]);
 })(angular);

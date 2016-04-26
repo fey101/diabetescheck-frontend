@@ -5,7 +5,7 @@
         var registrationData = {};
 
         return {
-            setWhatToMange: function(toManage) {
+            setWhatToManage: function(toManage) {
                 _.extend(registrationData, toManage);
             },
             setRelatedConditions: function(relatedConditions) {

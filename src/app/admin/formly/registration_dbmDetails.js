@@ -101,6 +101,7 @@
                     "ngModelElAttrs": {
                         "tabindex" : "1"
                     },
+                    "defaultValue": 65,
                     "templateOptions": {
                         "label": "Current weight in kilograms (Kgs)",
                         "required": true,
@@ -117,7 +118,7 @@
                         "tabindex" : "2",
                         "step": "0.01"
                     },
-                    "defaultValue": 1.5,
+                    "defaultValue": 1.50,
                     "templateOptions": {
                         "label": "Height in metres (M)",
                         "required": true,
@@ -292,7 +293,7 @@
                             class: "fa fa-envelope"
                         },
                         "emailValidationMsg": "Please provide a valid email address",
-                        "label": "Email address (Optional)",
+                        "label": "Email address",
                         "required": true,
                         "type": "email"
                     },
