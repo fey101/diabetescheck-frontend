@@ -172,7 +172,7 @@
                         "options": [
                             {
                                 "display": "Random",
-                                "value": "Random"
+                                "value": "random"
                             },
                             {
                                 "display": "15 minutes",

@@ -107,10 +107,9 @@
         "$scope", "$state", "moment", "errorMessage",
         "registrationForms", "dbcheck.admin.multistepValidation",
         "dbcheck.admin.formly.create_profile","registrationData",
-        "dbcheck.resource.linkAdminThings", "dbcheck.auth.services.login",
+        "dbcheck.resource.linkAdminThings",
         function ($scope, $state, moment, alert, registrationForms,
-            multistepValidation, fields, regData, registrationResources,
-            loginService) {
+            multistepValidation, fields, regData, registrationResources) {
             $scope.profileFormData = {};
             $scope.submitClicked = false;
 
@@ -154,23 +153,25 @@
                         // retrieve regData object
                         var regDataDetails = regData.getData();
                         console.log(regDataDetails);
-                        // create involved objects but first authorize creation by
-                        // temporarily using admin's credentials
-                        // loginService.fetchToken();
-
                         var userObject = {
                             "password": regDataDetails.password,
+                            "email": regDataDetails.email,
                             "first_name": regDataDetails.first_name,
                             "last_name": regDataDetails.last_name,
-                            "email": regDataDetails.email,
                             "is_active": true
                         };
+
+                        // create registration objects
                         registrationResources.user.create(userObject).then(
                             function(userData) {
+                                console.log(userData);
                                 var healthDetailObject = {
                                     "weight": regDataDetails.weight,
                                     "height": regDataDetails.height,
-                                    "diabetic": regDataDetails.diabetic
+                                    "diabetic": regDataDetails.diabetic,
+                                    "exercise_freq":regDataDetails.exercise_freq,
+                                    "daily_activity_level": regDataDetails.daily_activity_level,
+                                    "related_conditions": regDataDetails.related_conditions
                                 };
                                 registrationResources.healthDetail.create(
                                     healthDetailObject).then(
@@ -187,7 +188,7 @@
                                             personObject).then(
                                             function(personData) {
                                                 console.log(personData);
-                                                // $state.go($scope.next_state);
+                                                $state.go($scope.next_state);
                                             },
                                             function(error) {
                                                 $scope.submitClicked = false;
