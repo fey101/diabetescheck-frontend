@@ -170,8 +170,10 @@
                                     "height": regDataDetails.height,
                                     "diabetic": regDataDetails.diabetic,
                                     "exercise_freq":regDataDetails.exercise_freq,
-                                    "daily_activity_level": regDataDetails.daily_activity_level,
-                                    "related_conditions": regDataDetails.related_conditions
+                                    "daily_activity_level":
+                                        regDataDetails.daily_activity_level,
+                                    "related_conditions":
+                                        regDataDetails.related_conditions
                                 };
                                 registrationResources.healthDetail.create(
                                     healthDetailObject).then(

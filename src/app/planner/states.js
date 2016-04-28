@@ -12,11 +12,11 @@
                         templateUrl: "planner/tpls/planner.tpl.html"
                     },
                     "indexsidebar@": {
-                        templateUrl: "planner/tpls/sidebar.planner.tpl.html"
+                        templateUrl: "journal/tpls/sidebar.planner.tpl.html"
                     },
                     "mealtime-content@planner": {
                         controller: "dbcheck.planner.controllers.setup",
-                        templateUrl: "planner/tpls/mealtime.planner.tpl.html"
+                        templateUrl: "journal/tpls/mealtime.planner.tpl.html"
                     }
                 }
             });
