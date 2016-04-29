@@ -4,15 +4,7 @@
     angular.module("dbcheck.admin.formly.dbmDetails", [])
 
     .factory("dbcheck.admin.formly.dbm", [function () {
-        /*
-        *   This service hold the fields necessary for creating new
-        *   recipe. Fields are rendered as JSON by the awesome angular formly
-        *   form directive.
-        *
-        *   Defining forms fields this way(other than puting them in a JSON file)
-        *   enables us to take advantage of the full power of angular-formly
-        *   and use it's validation that is easily implemented using JS
-        */
+
         var getFields = function () {
             var fields = [
                 {
@@ -89,7 +81,7 @@
                             }
                         ],
                         "reqValidationMsg": "This field is required",
-                        "required": true
+                        "required": false
                     },
                     "type": "multiCheckbox"
                 }
@@ -109,6 +101,7 @@
                     "ngModelElAttrs": {
                         "tabindex" : "1"
                     },
+                    "defaultValue": 65,
                     "templateOptions": {
                         "label": "Current weight in kilograms (Kgs)",
                         "required": true,
@@ -122,8 +115,10 @@
                 {
                     "key": "height",
                     "ngModelElAttrs": {
-                        "tabindex" : "2"
+                        "tabindex" : "2",
+                        "step": "0.01"
                     },
+                    "defaultValue": 1.50,
                     "templateOptions": {
                         "label": "Height in metres (M)",
                         "required": true,
@@ -177,7 +172,7 @@
                         "options": [
                             {
                                 "display": "Random",
-                                "value": "Random"
+                                "value": "random"
                             },
                             {
                                 "display": "15 minutes",
@@ -298,7 +293,7 @@
                             class: "fa fa-envelope"
                         },
                         "emailValidationMsg": "Please provide a valid email address",
-                        "label": "Email address (Optional)",
+                        "label": "Email address",
                         "required": true,
                         "type": "email"
                     },
@@ -316,29 +311,6 @@
                         "label": "Password",
                         "reqValidationMsg": "To safeguard your details," +
                         " please provide a password",
-                        "required": true,
-                        "type": "password"
-                    },
-                    "type": "input"
-                },
-                {
-                    "expressionProperties": {
-                        "templateOptions.pwCheckerVal": "model.password"
-                    },
-                    "key": "confirm_password",
-                    "ngModelAttrs": {
-                        "tabindex" : "7",
-                        "pwCheckerVal": {
-                            "attribute": "pw-checker"
-                        }
-                    },
-                    "templateOptions": {
-                        "addonLeft": {
-                            "class": "fa fa-lock"
-                        },
-                        "label": "Confirm password",
-                        "reqValidationMsg": "Please re-enter the" +
-                        " selected password here",
                         "required": true,
                         "type": "password"
                     },

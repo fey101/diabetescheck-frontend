@@ -7,12 +7,33 @@
         "dbcheck.resource.linkRecipeThings",
         "dbcheck.common.service.js_data_alerts",
         function($scope, $state, formlyService, recipeLink, error_svc) {
+            $scope.plannerModel = {};
+            $scope.selectedItems = [];
+            $scope.fields = formlyService.getFields();
 
             var setMealtime = function(time) {
                 $scope.mealtime = time ;
-                //filter Breaktime recipes and allocate to $scope.recipes
-                // params = {"mealtime": "time"};
-                recipeLink.recipes.findAll().then(
+                var backendTime;
+                switch (time) {
+                case "Breakfast":
+                    backendTime = "bf";
+                    break;
+                case "Lunch":
+                    backendTime = "lunch";
+                    break;
+                case "Supper":
+                    backendTime = "supper";
+                    break;
+                case "Mid-morning Snack":
+                    backendTime = "snack";
+                    break;
+                case "After Lunch Snack":
+                    backendTime = "snack";
+                    break;
+                }
+                // filter Breaktime recipes and allocate to $scope.recipes
+                var params = {"category": backendTime};
+                recipeLink.recipes.findAll(params).then(
                     function(data) {
                         $scope.recipes = data;
                     },
@@ -22,36 +43,38 @@
                 );
             };
 
-            var mealtime = $state.params.mealtime;
+            var mealtime = $state.params.mealtime || "Breakfast";
             setMealtime(mealtime);
 
             //for the bottom nutrition calculator portion
-            $scope.plannerForm = {};
-            $scope.fooditems = {};
-            $scope.total = {
-                "calories": 0,
-                "cholestrol": 0
-            };
-            $scope.fields = formlyService.getFields();
-            $scope.selectedItems = [];
-
-            console.log($scope.plannerForm);
-            console.log($scope.fooditems);
-            for ( var i = 0; i < $scope.selectedItems.length; i++ ) {
-                // var temp = $scope.selectedItems[i];
-                // $scope.selectedItems[i].calc_calories = (
-                //     temp.calories * $scope.fooditems.item[i]);
-                // $scope.selectedItems[i].calc_cholestrol = (
-                //     temp.cholestrol * $scope.fooditems.item[i]);
-                $scope.total.calories += $scope.selectedItems[i].calc_calories;
-                $scope.total.cholestrol += $scope.selectedItems[i].calc_cholestrol;
-            }
             console.log($scope.selectedItems);
-        }
-    ])
-    .controller("dbcheck.planner.controllers.sidebar_setup",[
-        function() {
 
+            $scope.resetValues = function(newList) {
+                console.log("changed!");
+                $scope.total = {
+                    "calories": 0,
+                    "cholestrol": 0
+                };
+                _.each(newList, function(item) {
+                    var calories_perServing = parseInt(
+                        item.nutrients_list[0].quantity, 10);
+                    item.calc_calories = item.quantity * calories_perServing || 0;
+                    $scope.total.calories += item.calc_calories;
+                    console.log(item.calc_calories);
+                    console.log($scope.total.calories);
+                    console.log (typeof($scope.total.calories));
+                });
+            };
+            $scope.removeItem = function(itemIndex) {
+                $scope.selectedItems.splice(itemIndex, 1);
+                $scope.resetValues($scope.selectedItems);
+            };
+
+            $scope.addToJournal = function() {
+                console.log($scope.plannerForm);
+                console.log($scope.plannerModel);
+                console.log($scope.selectedItems[0].quantity);
+            };
         }
     ]);
 

@@ -1,10 +1,10 @@
 <div class="tab-pane active" role="tabpanel" id="step4">
     <h3 class="active-tab">Create Your Profile</h3>
     <div class="wizard-body sil-col-offset-2 sil-col-8">
-    <form novalidate class="form-group" name="profileForm" ng-submit="submitDetails()">
+    <form novalidate class="form-group" name="profileForm" ng-submit="submitDetails(profileForm.$valid)">
         <error-alerts></error-alerts>
         <fieldset ng-disabled="submitClicked">
-            <formly-form fields ="fields" model="profileForm.model"
+            <formly-form fields ="fields" model="profileFormData"
                 form="profileForm">
             </formly-form>
 
@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" ng-click="submitDetails(profileForm.$valid)">Submit</button>
             </div>
         </fieldset>
     </form>

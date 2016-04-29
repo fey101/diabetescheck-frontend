@@ -29,6 +29,9 @@
                         case "create_account.about_you":
                             return "create_account.create_profile";
 
+                        case "create_account.create_profile":
+                            return "auth_login";
+
                         }
                     };
                     var updateValidityOfCurrentStep = function(updatedValidity) {
