@@ -6,17 +6,14 @@
         $stateProvider
             .state("planner", {
                 parent: "base_state",
-                url: "/planner/:mealtime",
+                url: "/planner/",
                 views: {
                     "content@": {
                         templateUrl: "planner/tpls/planner.tpl.html"
                     },
-                    "indexsidebar@": {
-                        templateUrl: "journal/tpls/sidebar.planner.tpl.html"
-                    },
-                    "mealtime-content@planner": {
-                        controller: "dbcheck.planner.controllers.setup",
-                        templateUrl: "journal/tpls/mealtime.planner.tpl.html"
+                    "pageactions@": {
+                        templateUrl: "journal/tpls/pageactions/" +
+                            "pageactions_detailView.tpl.html"
                     }
                 }
             });

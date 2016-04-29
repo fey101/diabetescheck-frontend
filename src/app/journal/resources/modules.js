@@ -5,7 +5,6 @@
         "dbcheck.resources.journal.persons",
         "dbcheck.resources.journal.linkJournalThings",
         // "dbcheck.resources.journal.gender",
-        // "dbcheck.resources.journal.healthDetails",
         "dbcheck.resources.journal.sugarlevelDetails",
         "dbcheck.resources.journal.sugarlevelsLog",
         "dbcheck.resources.journal.exerciseLog",

@@ -40,11 +40,17 @@
                 ncyBreadcrumb: {
                     label: "Diet"
                 },
-                url: "journal/diet",
+                url: "journal/diet/:mealtime",
                 views: {
                     "content@": {
-                        controller: "dbcheck.journal.controllers.food_log",
                         templateUrl: "journal/tpls/dietary_log.tpl.html"
+                    },
+                    "indexsidebar@": {
+                        templateUrl: "journal/tpls/sidebar.planner.tpl.html"
+                    },
+                    "mealtime-content@journal.dietaryInfo": {
+                        controller: "dbcheck.planner.controllers.setup",
+                        templateUrl: "journal/tpls/mealtime.planner.tpl.html"
                     },
                     "pageactions@": {
                         templateUrl: "journal/tpls/pageactions/" +
