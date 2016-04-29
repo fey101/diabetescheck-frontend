@@ -1,1 +1,28 @@
-Community Setup Here
+<error-alerts></error-alerts>
+<div class="panel">
+    <div class="panel-heading">
+        <span class="panel-title">Frequently Asked Questions</span>
+    </div>
+    <div class="panel-body">
+        <div class="dbcheck-col-10">
+
+            <div class="well" ng-repeat="item in questions">
+                <a data-toggle="collapse" data-target="#toggle-content-{{$index}}">
+                    <span>{{item.question}}</span>
+                </a>
+                <div id="toggle-content-{{$index}}" class="collapse">
+                    <div>{{item.brief_response}}</div>
+                    <div ng-if="item.detailed_response_url">
+                        <span>For further information, visit: </span>
+                        <span>
+                            <a href="{{item.detailed_response_url}}" target="_blank">
+                            {{item.detailed_response_url}}</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="dbcheck-col-2"></div>
+    </div>
+</div>

@@ -77,7 +77,7 @@
                         "reqValidationMsg": "This field is required",
                         "required": true,
                         "min": 0,
-                        "max": 300,
+                        "max": 700,
                         "type": "number"
                     },
                     "type": "input"

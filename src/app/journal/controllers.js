@@ -3,9 +3,12 @@
     angular.module("dbcheck.journal.controllers", [])
 
     .controller("dbcheck.journal.controllers.blood_glucose",[
-        "$scope", "$state", "errorMessage", "dbcheck.journal.formly.log_glucose",
-        "dbcheck.auth.services.login",
-        function ( $scope, $state, alert, formlyService, loginservice) {
+        "$scope", "$state", "dbcheck.journal.formly.log_glucose",
+        "dbcheck.journal.service", "dbcheck.resource.linkJournalThings",
+        "dbcheck.common.service.js_data_alerts", "errorMessage",
+        function ( $scope, $state, formlyService,
+            journalSvc, linkResource, alert, error_svc) {
+
             $scope.glucoseLogForm = {};
             $scope.fields = formlyService.getFields();
 
@@ -15,72 +18,34 @@
                     $scope.submitClicked = true;
                     var sugarLevel = $scope.glucoseLogForm.model.glycemic_index;
                     var period = $scope.glucoseLogForm.model.period_taken;
-                    var user = loginservice.getUser();
-                    var isDiabetic = user.person.person_health.diabetic;
-                    var results;
-                    if (period === "fasting glucose") {
-                        if (sugarLevel < 50) {
-                            results = {
-                                status: "Hypoglycemia",
-                                explanation: "Your sugar levels are too low below" +
-                                    " normal",
-                                remedial_action: " Take 3 scoops of glucose or" +
-                                    " sweets immediately ",
-                                recommendation:"Seek medical advice soonest possible"
-                            };
-                        }
-                        else if (sugarLevel < 70) {
-                            results = {
-                                status: "Hypoglycemia",
-                                explanation: "Your sugar level is below normal",
-                                remedial_action: "Find food to eat and take" +
-                                    " blood sugar level readings more often",
-                                recommendation:"Seek medical advice soonest possible"
-                            };
-                        }
-                        else if (sugarLevel >= 70 && sugarLevel <= 110) {
-                            results = {
-                                status: "Normal blood sugar level",
-                                explanation: "Sugar level range is between 70" +
-                                    " and 110 mg/dl",
-                                remedial_action: "None",
-                                recommendation:"Maintain a healthy lifestyle by" +
-                                    " eating healthy and doing exercises"
-                            };
 
-                        }
-                        else if (sugarLevel > 110 && isDiabetic) {
-                            results = {
-                                status: "Hyperglycemia",
-                                explanation: "Your sugar level is above normal",
-                                remedial_action: "Exercise to reduce the blood" +
-                                    " sugar levels. High sugar levels lead to" +
-                                    " diabetic related complications",
-                                recommendation: "Try reducing your carbs/calories" +
-                                    " intake or increase your activity levels"
+                    var params = journalSvc.findParams(period, sugarLevel);
+                    linkResource.sugarDetails.findAll(
+                        params, {bypassCache:true}).then(function(data) {
+                            $scope.results = data[0];
+                            var object = {
+                                sugarLevel: sugarLevel,
+                                period: period,
+                                details: $scope.results.id
                             };
+                            //save log
+                            linkResource.sugarLog.create(object).then(
+                                function() {
+                                    var message = "Sugar level logged successfully";
+                                    $scope.success = {
+                                        msg:message,
+                                        title: "OK"
+                                    };
+                                },
+                                function(error) {
+                                    $scope.alert = error_svc.showError(
+                                        error, "Error");
+                                }
+                            );
+                        }, function(error) {
+                            $scope.alert = error_svc.showError(error, "Error");
                         }
-                        else if (sugarLevel > 110 && !isDiabetic) {
-                            results = {
-                                status: "Hyperglycemia",
-                                explanation: "Your sugar level is above normal",
-                                recommendation: "if high readings persit/have" +
-                                    " persisted, it is recommended that you have" +
-                                    " your HbA1c levels tested at a health" +
-                                    " facility to determine if you are diabetic. ",
-                                remedial_action: "Try reducing your carbs/calories" +
-                                    " intake or increase your activity levels"
-                            };
-                        }
-
-                    }
-                    // if (period === "before meal") {
-                    //     //todo;
-                    // }
-                    // if (period === "after meal") {
-                    //     //todo;
-                    // }
-                    $scope.results = results;
+                        );
                 }
                 else {
                     var data = {
@@ -90,7 +55,7 @@
                         }
                     };
                     $scope.submitClicked = false;
-                    $scope.alert = alert.showError(data, "Error");
+                    $scope.alert = error_svc.showError(data, "Error");
                 }
             };
             //Accordion controls
@@ -126,7 +91,8 @@
     ])
     .controller("dbcheck.journal.controllers.fitness_log",[
         "$scope", "$state", "errorMessage", "dbcheck.journal.formly.fitness_log",
-        function ( $scope, $state, alert, formlyService) {
+        "dbcheck.resource.linkJournalThings",
+        function ( $scope, $state, error_svc, formlyService, linkResource) {
             $scope.fitnessLogForm = {};
             $scope.fields = formlyService.getFields();
 
@@ -134,6 +100,23 @@
                 if ($scope.fitnessLogForm.$valid) {
                     $scope.alert = false;
                     $scope.submitClicked = true;
+                    linkResource.exerciseLog.create(
+                        $scope.fitnessLogForm.model).then(
+                            function(data) {
+                                var message = "Activity logged successfully";
+                                $scope.success = {
+                                        msg:message,
+                                        title: "OK"
+                                    };
+                                $scope.calories_burnt = data.total_calories_burnt;
+                                var conversion_rate = 7709;
+                                $scope.bw_equivalent = (
+                                    $scope.calories_burnt / conversion_rate);
+                            },
+                            function(error) {
+                                $scope.alert = error_svc.showError(error, "Error");
+                            }
+                        );
                 }
                 else {
                     var data = {
@@ -143,7 +126,7 @@
                         }
                     };
                     $scope.submitClicked = false;
-                    $scope.alert = alert.showError(data, "Error");
+                    $scope.alert = error_svc.showError(data, "Error");
                 }
             };
             $scope.groups = [
@@ -190,7 +173,7 @@
     ])
     .controller("dbcheck.journal.controllers.food_log",[
         "$scope", "$state", "errorMessage", "dbcheck.journal.formly.log_medication",
-        function ( $scope, $state, alert, formlyService) {
+        function ( $scope, $state, error_svc, formlyService) {
             $scope.medicationLogForm = {};
             $scope.fields = formlyService.getFields();
 
@@ -207,7 +190,7 @@
                         }
                     };
                     $scope.submitClicked = false;
-                    $scope.alert = alert.showError(data, "Error");
+                    $scope.alert = error_svc.showError(data, "Error");
                 }
             };
             $scope.groups = [

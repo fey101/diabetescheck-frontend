@@ -17,9 +17,28 @@
                 </fieldset>
             </form>
 
-            <div ng-if="submitClicked">
-                <label>Interpreting the results given:</label>
-                <div class="loader"></div>
+            <div style="margin-top:60px">
+                <div class="t-content panel" ng-if="submitClicked">
+
+                    <div ng-if='success' class='alert alert-success fade in'>
+                        <button type='button' class='close' data-dismiss='alert'
+                        aria-hidden='true'>×</button>
+                        <div><strong>{{success.title}}</strong>: {{success.msg}}</div>
+                    </div>
+
+
+                    <h3 class="panel-title"><strong>Activity Breakdown:</strong>
+                    </h3>
+                    <div class="panel-body">
+                        <p>
+                            <strong>Calories Burnt:</strong> {{calories_burnt}}
+                        </p>
+                        <p>
+                            <strong>BodyWeight equivalent:</strong>
+                            {{bw_equivalent | number : 3}} kg
+                        </p>
+                    </div>
+                </div>
             </div>
 
         </div>
