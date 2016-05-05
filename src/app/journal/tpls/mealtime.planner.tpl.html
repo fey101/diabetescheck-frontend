@@ -1,4 +1,3 @@
-<error-alerts></error-alerts>
 <div class="t-content panel">
     <h3 class="panel-title">What will you have for {{mealtime}}?</h3>
     <div class="panel-body">
@@ -10,52 +9,62 @@
     </div>
 </div>
 <div class="t-innercontent panel">
+    <error-alerts></error-alerts>
     <div class="panel-heading">
         <span class="panel-title">Nutrition Value Calculator</span>
     </div>
     <div class="panel-body">
     <div class="dbcheck-col-8">
-        <form novalidate  ng-submit="addToJournal()" name="plannerForm">
-            <div style="margin-bottom:60px">
-                <div class="row">
-                    <div class="dbcheck-col-5"><i>Selected food items</i></div>
-                    <div class="dbcheck-col-3"><i>Quantity</i></div>
-                    <div class="dbcheck-col-2 tx-right"><i>Caloric Value(cal)</i></div>
-                    <div class="dbcheck-col-2 tx-right"><i>Cholestrol levels(mg/dl)</i></div>
-                </div>
-                <div class="row" ng-repeat="item in selectedItems" content-editable="true">
-
-                    <div class="dbcheck-col-5">
-                        <button type='button' class='close pull-left' style="margin-right:10px"
-                        ng-click="removeItem(indexOf(item))">&times;</button>
-                        <span>{{item.name}}</span>
+        <form novalidate  ng-submit="logMeal()" name="plannerForm">
+            <fieldset ng-disabled="submitClicked">
+                <div style="margin-bottom:60px">
+                    <div class="row">
+                        <div class="dbcheck-col-5"><i>Selected food items</i></div>
+                        <div class="dbcheck-col-3"><i>Quantity</i></div>
+                        <div class="dbcheck-col-2 tx-right"><i>Caloric Value(cal)</i></div>
+                        <div class="dbcheck-col-2 tx-right"><i>Cholestrol levels(mg/dl)</i></div>
                     </div>
-                    <div class="dbcheck-col-3">
-                        <input class="dbcheck-col-4" type="number"
-                            ng-model="item.quantity"
-                            name="item.quantity" ng-required="true"
-                            min="1" ng-change="resetValues(selectedItems)">
-                        <span class="dbcheck-col-8 pull-right">serving(s)</span>
+                    <div class="row" ng-repeat="item in selectedItems" content-editable="true">
+
+                        <div class="dbcheck-col-5">
+                            <button type='button' class='close pull-left' style="margin-right:10px"
+                            ng-click="removeItem(indexOf(item))">&times;</button>
+                            <span>{{item.name}}</span>
+                        </div>
+                        <div class="dbcheck-col-3">
+                            <input class="dbcheck-col-4" type="number"
+                                ng-model="item.quantity"
+                                name="item.quantity" ng-required="true"
+                                min="1" ng-change="resetValues(selectedItems)">
+                            <span class="dbcheck-col-8 pull-right">serving(s)</span>
+                        </div>
+                        <div class="dbcheck-col-2 tx-right">{{item.calc_calories}}</div>
+                        <div class="dbcheck-col-2 tx-right">{{item.calc_cholesterol}}</div>
                     </div>
-                    <div class="dbcheck-col-2 tx-right">{{item.calc_calories}}</div>
-                    <div class="dbcheck-col-2 tx-right">{{item.calc_cholestrol}}</div>
+                    <br/>
+                    <div class="row">
+                        <div class="dbcheck-col-5"><strong>Total</strong></div>
+                        <div class="dbcheck-col-3"><strong></strong></div>
+                        <div class="dbcheck-col-2 tx-right"><strong>{{total.calories}}</strong></div>
+                        <div class="dbcheck-col-2 tx-right"><strong>{{total.cholesterol}}</strong></i></div>
+                    </div>
                 </div>
-                <br/>
-                <div class="row">
-                    <div class="dbcheck-col-5"><strong>Total</strong></div>
-                    <div class="dbcheck-col-3"><strong></strong></div>
-                    <div class="dbcheck-col-2 tx-right"><strong>{{total.calories}}</strong></div>
-                    <div class="dbcheck-col-2 tx-right"><strong>{{total.cholestrol}}</strong></i></div>
-                </div>
-            </div>
 
-            <formly-form fields="fields" model="plannerModel">
-            </formly-form>
+                <formly-form fields="fields" model="plannerModel">
+                </formly-form>
 
-                <div class="dbcheck-col-12" >
-                    <button class="btn btn-primary"
-                        type="submit">Add to your journal</button>
-                </div>
+                    <div class="dbcheck-col-12" >
+                        <button class="btn btn-primary"
+                            type="submit">Log meal</button>
+                    </div>
+
+            </fieldset>
         </form>
+
+        <div ng-if='success' class='alert alert-success fade in'>
+            <button type='button' class='close' data-dismiss='alert'
+            aria-hidden='true'>×</button>
+            <div><strong>{{success.title}}</strong>: {{success.msg}}</div>
+        </div>
     </div>
 </div>

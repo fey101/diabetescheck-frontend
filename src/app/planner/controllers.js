@@ -5,7 +5,7 @@
     .controller("dbcheck.planner.controllers.setup",[
         "$scope", "$state", "dbcheck.planner.formly.user_targets",
         "dbcheck.resource.linkRecipeThings",
-        "dbcheck.common.service.js_data_alerts",
+        "errorMessage",
         function($scope, $state, formlyService, recipeLink, error_svc) {
             $scope.plannerModel = {};
             $scope.selectedItems = [];
@@ -47,22 +47,22 @@
             setMealtime(mealtime);
 
             //for the bottom nutrition calculator portion
-            console.log($scope.selectedItems);
 
             $scope.resetValues = function(newList) {
-                console.log("changed!");
                 $scope.total = {
                     "calories": 0,
-                    "cholestrol": 0
+                    "cholesterol": 0
                 };
                 _.each(newList, function(item) {
                     var calories_perServing = parseInt(
                         item.nutrients_list[0].quantity, 10);
+                    var cholesterol_perServing = parseInt(
+                        item.nutrients_list[6].quantity, 10);
                     item.calc_calories = item.quantity * calories_perServing || 0;
+                    item.calc_cholesterol = item.quantity *
+                        cholesterol_perServing || 0;
                     $scope.total.calories += item.calc_calories;
-                    console.log(item.calc_calories);
-                    console.log($scope.total.calories);
-                    console.log (typeof($scope.total.calories));
+                    $scope.total.cholesterol += item.calc_cholesterol;
                 });
             };
             $scope.removeItem = function(itemIndex) {
@@ -70,10 +70,39 @@
                 $scope.resetValues($scope.selectedItems);
             };
 
-            $scope.addToJournal = function() {
-                console.log($scope.plannerForm);
-                console.log($scope.plannerModel);
-                console.log($scope.selectedItems[0].quantity);
+            $scope.logMeal = function() {
+                if ($scope.plannerForm.$valid) {
+                    $scope.submitClicked = true;
+                    var foodlogObject = {
+                        period: mealtime,
+                        calories_gained: $scope.total.calories,
+                        cholesterol_gained: $scope.total.cholesterol,
+                        food: $scope.selectedItems[0].id
+                    };
+                    recipeLink.foodLog.create(foodlogObject).then(
+                        function() {
+                            var message = "Meal logged successfully";
+                            $scope.success = {
+                                msg:message,
+                                title: "OK"
+                            };
+                        },
+                        function(error) {
+                            $scope.alert = error_svc.showError(
+                                error, "Error");
+                        }
+                    );
+                }
+                else {
+                    var data = {
+                        "data": {
+                            "error": "Please correct the" +
+                            " errors on the form"
+                        }
+                    };
+                    $scope.submitClicked = false;
+                    $scope.alert = error_svc.showError(data, "Error");
+                }
             };
         }
     ]);

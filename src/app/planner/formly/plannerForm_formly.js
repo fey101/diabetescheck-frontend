@@ -16,9 +16,9 @@
                     "ngModelElAttrs": {
                         "tabindex" : "1"
                     },
-                    "defaultValue": 100,
+                    "defaultValue": 2200,
                     "templateOptions": {
-                        "label": "Targeted caloric value",
+                        "label": "Recommended caloric limit PER DAY(on average)",
                         "required": true,
                         "reqValidationMsg": "This field is required",
                         "min": 0,
@@ -31,9 +31,9 @@
                     "ngModelElAttrs": {
                         "tabindex" : "2"
                     },
-                    "defaultValue": 100,
+                    "defaultValue": 200,
                     "templateOptions": {
-                        "label": "Targeted cholestrol levels (mg/dl)",
+                        "label": "Recommended cholestrol limit(mg/dl) PER DAY",
                         "reqValidationMsg": "This field is required",
                         "required": true,
                         "min": 0,
