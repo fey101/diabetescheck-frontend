@@ -1,27 +1,42 @@
 <div class="container-fluid login-form" ng-controller="dbcheck.auth.controllers.authBase">
-  <div class="mw600 center-block mt110">
-        <!-- Login 1 -->
-        <div class=" theme-primary" id="login1">
-          <div class="panel panel-primary heading-border">
+  <div class='row'>
+      <div class='dbcheck-col-7' style="background-size:cover;">
+        <img src="assets/img/loginpage3.jpg" style="height: 800px; width:100%" />
+      </div>
+      <div class='dbcheck-col-4'>
+            <div class="mw600 center-block mt110">
+              <!-- Login 1 -->
+              <div class=" theme-primary" id="login1">
+                <div class="panel panel-primary heading-border">
 
-                <div class="panel-body p25 pt10">
-                  <div class="logo text-center mb20 mt20">
-                      <span>Diabetes Check</span>
-                  </div>
-                  <div class="section-divider mv5"></div>
-                  <br>
-                  <div ui-view="form"></div>
-                  <div class="login-footer">
-                      <p>
-                        Copyright &copy; {{year}}
-                        <a href="https://github.com/fey101">admin@diabetescheck.com</a> <br>
-                      </p>
-                  </div>
+                      <div class="panel-body p25 pt10">
+                        <div class="logo text-center mb10 mt20 fs26">
+                            <span><strong>Diabetes Check</strong></span>
+                        </div>
+                         <div class="logo text-center mb20 mt10">
+                            <span><i>A diabetes self assessment and management app</i></span>
+                        </div>
+                        <div class="section-divider mv5"></div>
+                        <br>
+                        <div ui-view="login-form"></div>
+                        <div class="login-footer">
+                            <p>
+                              Copyright &copy; {{year}}
+                              <a href="https://github.com/fey101">admin@diabetescheck.com</a> <br>
+                            </p>
+                        </div>
+                      </div>
+
                 </div>
-
-          </div>
-          <!-- end .panel-->
+                <!-- end .panel-->
+              </div>
+              <!-- end: . -->
         </div>
-        <!-- end: . -->
+      </div>
+      <div class='dbcheck-col-1'>
+      </div>
   </div>
+
 </div>
+
+

@@ -6,11 +6,10 @@
     .config(["$stateProvider", function ($stateProvider) {
         $stateProvider
             .state("create_account", {
-                parent: "auth_base",
                 requireUser: false,
                 url: "/account/signup",
                 views:{
-                    "form":{
+                    "main":{
                         templateUrl: "admin/tpls/registration/signup.base.tpl.html"
                     }
                 }

@@ -19,7 +19,7 @@
                 url: "/login/?reset_password&" +
                     "reset_password_confirm&change_pwd&timeout",
                 views:{
-                    "form":{
+                    "login-form":{
                         controller: "dbcheck.auth.controllers.loginAuth",
                         templateUrl: "auth/tpls/login.tpl.html"
                     }
@@ -31,7 +31,7 @@
                 showErrorPage: false,
                 url: "/logout/?timeout&change_pwd",
                 views:{
-                    "form":{
+                    "login-form":{
                         controller: "dbcheck.auth.controllers.logoutAuth",
                         templateUrl: "auth/tpls/login.tpl.html"
                     }
@@ -41,7 +41,7 @@
                 requireUser: false,
                 url: "/password/reset",
                 views:{
-                    "form":{
+                    "login-form":{
                         controller: "dbcheck.auth.controllers.passwordReset",
                         templateUrl: "auth/tpls/reset_email.tpl.html"
                     }
@@ -51,7 +51,7 @@
                 requireUser: false,
                 url: "/password/reset/confirm/:uid/:token",
                 views:{
-                    "form":{
+                    "login-form":{
                         controller: "dbcheck.auth.controllers.passwordResetConfirm",
                         templateUrl: "auth/tpls/reset_confirm.tpl.html"
                     }
@@ -62,7 +62,7 @@
                 showErrorPage: false,
                 url: "/auth/change/password/",
                 views:{
-                    "form":{
+                    "login-form":{
                         controller: "dbcheck.common.controllers.changePassword",
                         templateUrl: "auth/tpls/change_password.tpl.html"
                     }

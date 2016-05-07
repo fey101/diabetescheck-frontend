@@ -76,8 +76,8 @@
                         "label": "Blood glucose levels (mg/dl)",
                         "reqValidationMsg": "This field is required",
                         "required": true,
-                        "min": 0,
-                        "max": 700,
+                        "min": 20,
+                        "max": 600,
                         "type": "number"
                     },
                     "type": "input"
