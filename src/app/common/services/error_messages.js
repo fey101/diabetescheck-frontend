@@ -241,7 +241,7 @@
                     // This section handles all the front-end errors. E.g
                     // If there's no internet(production case), the frontend
                     // is put in a such a way that it gives some kind of
-                    // feedback to the UI. The <sil-js-data-alerts>
+                    // feedback to the UI. The <error-alerts>
                     // directive iterates through an array of objects and
                     // we therefore need to convert these single string
                     // values into array of objects.

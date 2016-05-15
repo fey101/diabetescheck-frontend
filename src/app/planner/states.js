@@ -9,7 +9,8 @@
                 url: "/planner/",
                 views: {
                     "content@": {
-                        templateUrl: "planner/tpls/planner.tpl.html"
+                        templateUrl: "planner/tpls/planner.tpl.html",
+                        controller: "dbcheck.planner.plannerCtrl"
                     },
                     "pageactions@": {
                         templateUrl: "journal/tpls/pageactions/" +

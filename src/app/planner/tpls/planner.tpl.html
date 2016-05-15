@@ -1,1 +1,41 @@
-planner view here including glucose logs graph
+<div>
+    <h3>Food not in available recipes? Find out calories in it</h3>
+    <div>
+        <div class="recipe-hold-info" style="margin-bottom:40px">
+            <div class="dbcheck-col-8">
+                Name: name of food item <br/>
+                Calories:
+            </div>
+            <div class="dbcheck-col-4">
+                <h4><strong>Nutrition Details:</strong></h4>
+                <strong>per serving<br/></strong>
+                <div ng-repeat="nutrient in nutrients_list">
+                    <span>{{nutrient}}  </span>
+                    <span>          </span>
+                    <span>grams</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <span><strong>Serving: {{recipe.serving}}</strong></span> |
+            <span><strong>Prep_time: {{recipe.prep_time| date:"HH"}}</strong></span>
+        </div>
+
+        <div>
+            <strong>Day's Breakdown:</strong>
+            <ul>Total Calories gained:</ul>
+            <ul>Total Cholesterol intake:</ul>
+            <ul>Weight gain:</ul>
+            <ul>weight loss:</ul>
+            <ul>Summary: gained/ lost 10 kg</ul>
+        </div>
+
+        <!-- <div>
+            <strong>Instructions:</strong><br/>
+            {{recipe.instructions}}
+        </div> -->
+
+
+    </div>
+</div>
