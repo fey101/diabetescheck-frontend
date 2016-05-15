@@ -3,7 +3,7 @@
     <div class="panel-body">
         <ul>
             <li ng-repeat="recipe in recipes">
-                <a ng-click="selectedItems.push(recipe);">{{recipe.name}}</a>
+                <a ng-click="addSelected(recipe)">{{recipe.name}}</a>
             </li>
         </ul>
     </div>

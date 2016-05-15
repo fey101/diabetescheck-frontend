@@ -46,6 +46,14 @@
             var mealtime = $state.params.mealtime || "Breakfast";
             setMealtime(mealtime);
 
+            $scope.addSelected = function(selected) {
+                $scope.selectedItems.push(selected);
+                var allSelectedItems = $scope.selectedItems;
+                // reassign only unique keys to $scope.selectedItems
+                $scope.selectedItems = _.uniq(allSelectedItems);
+
+            };
+
             //for the bottom nutrition calculator portion
 
             $scope.resetValues = function(newList) {
