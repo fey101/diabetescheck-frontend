@@ -13,6 +13,10 @@
                 views: {
                     "content@": {
                         templateUrl: "journal/tpls/journal_nav.tpl.html"
+                    },
+                    "pageactions@": {
+                        templateUrl: "journal/tpls/pageactions/" +
+                            "pageactions_journalNavpage.tpl.html"
                     }
                 }
             })
@@ -63,6 +67,22 @@
                     "content@": {
                         controller: "dbcheck.journal.controllers.fitness_log",
                         templateUrl: "journal/tpls/fitness_log.tpl.html"
+                    },
+                    "pageactions@": {
+                        templateUrl: "journal/tpls/pageactions/" +
+                            "pageactions_detailView.tpl.html"
+                    }
+                }
+            })
+            .state("journal.riskTest", {
+                ncyBreadcrumb: {
+                    label: "Risk test"
+                },
+                url: "journal/risk_test",
+                views: {
+                    "content@": {
+                        controller: "dbcheck.planner.risktest",
+                        templateUrl: "planner/tpls/risk_test.tpl.html"
                     },
                     "pageactions@": {
                         templateUrl: "journal/tpls/pageactions/" +

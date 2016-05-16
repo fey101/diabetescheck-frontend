@@ -1,0 +1,22 @@
+<div class="panel">
+    <div class="panel-heading">
+        <span class="panel-title">Diabetes Risk Test</span>
+    </div>
+    <div class="panel-body">
+        <div class="dbcheck-col-2"></div>
+        <div class="dbcheck-col-8">
+            <form novalidate ng-submit="analyse()" name="riskForm">
+                <error-alerts></error-alerts>
+
+                <fieldset ng-disabled="submitClicked">
+                <formly-form fields="fields" model="riskForm.model" form="riskForm">
+                    <div class="dbcheck-col-12">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </formly-form>
+                </fieldset>
+            </form>
+        </div>
+        <div class="dbcheck-col-2"></div>
+    </div>
+</div>

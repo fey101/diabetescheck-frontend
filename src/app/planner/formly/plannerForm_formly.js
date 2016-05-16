@@ -49,5 +49,101 @@
         return {
             "getFields": getFields
         };
+    }])
+    .factory("dbcheck.planner.formly.riskTest", [function () {
+
+        var getFields = function () {
+            var fields = [
+                {
+                    "key": "diabetic_relatives",
+                    "ngModelElAttrs": {
+                        "tabindex" : "1"
+                    },
+                    "templateOptions": {
+                        "label": "Do any relatives of you suffer from diabetes?",
+                        "options": [
+                            {
+                                "name": "No",
+                                "points": 0
+                            },
+                            {
+                                "name": "Yes, near relatives like parents," +
+                                    " children, siblings",
+                                "points": 5
+                            },
+                            {
+                                "name": "Yes, far relatives like grand-parents," +
+                                    " aunts, uncles, cousins",
+                                "points": 3
+                            }
+                        ],
+                        "required": true
+                    },
+                    "type": "radio"
+                },
+                {
+                    "key": "waist_circumference",
+                    "ngModelElAttrs": {
+                        "tabindex" : "2"
+                    },
+                    "templateOptions": {
+                        "label": "What is the circumference of the waist" +
+                            " at the belly button?",
+                        "required": true,
+                        "type": "number"
+                    },
+                    "type": "input"
+                },
+                {
+                    "key": "fruits_intake",
+                    "ngModelElAttrs": {
+                        "tabindex" : "3"
+                    },
+                    "templateOptions": {
+                        "label": "How often do you eat fruits, vegetables" +
+                            " or wholemeal bread?",
+                        "options": [
+                            {
+                                "name": "Every day",
+                                "points": 0
+                            },
+                            {
+                                "name": "Not every day",
+                                "points": 2
+                            }
+                        ],
+                        "required": true
+                    },
+                    "type": "radio"
+                },
+                {
+                    "key": "high_sugar",
+                    "ngModelElAttrs": {
+                        "tabindex" : "4"
+                    },
+                    "templateOptions": {
+                        "label": "Did you ever have high blood glucose" +
+                            " values during a health check?",
+                        "options": [
+                            {
+                                "name": "No",
+                                "points": 0
+                            },
+                            {
+                                "name": "Yes",
+                                "points": 2
+                            }
+                        ],
+                        "required": true
+                    },
+                    "type": "radio"
+                }
+            ];
+            return fields;
+        };
+
+        return {
+            "getFields": getFields
+        };
     }]);
 })(angular);

@@ -20,8 +20,8 @@
                         "emailValidationMsg": "Please provide a valid" +
                         " email address",
                         "label": "Email",
-                        "reqValidationMsg": "Please provide an email" +
-                        " address here",
+                        // "reqValidationMsg": "Please provide an email" +
+                        // " address here",
                         "required": true,
                         "type": "email"
                     },
@@ -34,7 +34,7 @@
                             "class": "fa fa-lock"
                         },
                         "label": "Password",
-                        "reqValidationMsg": "Please provide a password here",
+                        // "reqValidationMsg": "Please provide a password here",
                         "required": true,
                         "type": "password"
                     },
