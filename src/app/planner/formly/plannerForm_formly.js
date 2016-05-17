@@ -60,7 +60,7 @@
                         "tabindex" : "1"
                     },
                     "templateOptions": {
-                        "label": "Do any relatives of you suffer from diabetes?",
+                        "label": "Do any relatives of yours suffer from diabetes?",
                         "options": [
                             {
                                 "name": "No",
@@ -86,9 +86,11 @@
                     "ngModelElAttrs": {
                         "tabindex" : "2"
                     },
+                    "defaultValue": 30,
                     "templateOptions": {
                         "label": "What is the circumference of the waist" +
                             " at the belly button?",
+                        "min": 10,
                         "required": true,
                         "type": "number"
                     },

@@ -6,6 +6,7 @@
         "dbcheck.planner.risktestcontroller",
         "dbcheck.planner.plancontrollers",
         "dbcheck.planner.states",
-        "dbcheck.planner.services.formly"
+        "dbcheck.planner.services.formly",
+        "dbcheck.planner.services"
     ]);
 })(angular);

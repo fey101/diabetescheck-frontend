@@ -3,8 +3,41 @@
         <span class="panel-title">Diabetes Risk Test</span>
     </div>
     <div class="panel-body">
+
         <div class="dbcheck-col-2"></div>
         <div class="dbcheck-col-8">
+            <div class="recipe-hold-info">
+                <table class="table mb15 table-responsive table-condensed">
+                    <tbody>
+                      <tr>
+                        <td><strong>Name:</strong></td>
+                        <td>{{user.person.person_display}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Gender:</strong></td>
+                        <td>{{user.person.gender_name}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Age:</strong></td>
+                        <td> {{age}} </td>
+                      </tr>
+                      <tr>
+                        <td><strong>BMI:</strong></td>
+                        <td>{{user.person.person_health.bmi}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Level of Activity:</strong></td>
+                        <td>{{user.person.person_health.daily_activity_level}}</td>
+                      </tr>
+                      <tr>
+                          <td><strong>Related Conditions:</strong></td>
+                          <td ng-if="user.person.person_health.related_conditions"
+                           ng-repeat="condition in user.person.person_health.related_conditions"></td>
+                           <td ng-if="!user.person.person_health.related_conditions">None</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
             <form novalidate ng-submit="analyse()" name="riskForm">
                 <error-alerts></error-alerts>
 
