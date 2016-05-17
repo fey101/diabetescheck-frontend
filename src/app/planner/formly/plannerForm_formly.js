@@ -64,17 +64,17 @@
                         "options": [
                             {
                                 "name": "No",
-                                "points": 0
+                                "value": 0
                             },
                             {
                                 "name": "Yes, near relatives like parents," +
                                     " children, siblings",
-                                "points": 5
+                                "value": 5
                             },
                             {
                                 "name": "Yes, far relatives like grand-parents," +
                                     " aunts, uncles, cousins",
-                                "points": 3
+                                "value": 3
                             }
                         ],
                         "required": true
@@ -82,7 +82,7 @@
                     "type": "radio"
                 },
                 {
-                    "key": "waist_circumference",
+                    "key": "waist_circumference in centimetres(cm)",
                     "ngModelElAttrs": {
                         "tabindex" : "2"
                     },
@@ -107,11 +107,11 @@
                         "options": [
                             {
                                 "name": "Every day",
-                                "points": 0
+                                "value": 0
                             },
                             {
                                 "name": "Not every day",
-                                "points": 2
+                                "value": 2
                             }
                         ],
                         "required": true
@@ -129,11 +129,11 @@
                         "options": [
                             {
                                 "name": "No",
-                                "points": 0
+                                "value": 0
                             },
                             {
                                 "name": "Yes",
-                                "points": 2
+                                "value": 2
                             }
                         ],
                         "required": true

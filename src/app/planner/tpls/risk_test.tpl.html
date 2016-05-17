@@ -1,6 +1,7 @@
 <div class="panel">
     <div class="panel-heading">
-        <span class="panel-title">Diabetes Risk Test</span>
+        <span class="panel-title fs20">Diabetes Risk Test:</span>
+        <span>(Determines your risk to develop type 2 diabetes within the next 10 years)</span>
     </div>
     <div class="panel-body">
 
@@ -28,6 +29,10 @@
                       <tr>
                         <td><strong>Level of Activity:</strong></td>
                         <td>{{user.person.person_health.daily_activity_level}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Exercise Frequency:</strong></td>
+                        <td>{{user.person.person_health.exercise_freq}}</td>
                       </tr>
                       <tr>
                           <td><strong>Related Conditions:</strong></td>
