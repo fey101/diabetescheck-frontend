@@ -54,6 +54,13 @@
                 </formly-form>
                 </fieldset>
             </form>
+
+            <div ng-if='success' class='alert alert-success fade in'>
+            <button type='button' class='close' data-dismiss='alert'
+            aria-hidden='true'>×</button>
+            <div><strong>{{success.title}}</strong>: {{success.msg}}</div>
+
+        </div>
         </div>
         <div class="dbcheck-col-2"></div>
     </div>

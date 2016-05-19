@@ -61,10 +61,27 @@
             </fieldset>
         </form>
 
-        <div ng-if='success' class='alert alert-success fade in'>
-            <button type='button' class='close' data-dismiss='alert'
-            aria-hidden='true'>×</button>
-            <div><strong>{{success.title}}</strong>: {{success.msg}}</div>
+        <div class="t-content panel" ng-if="submitClicked">
+                    <div ng-if='success' class='alert alert-success fade in'>
+                        <button type='button' class='close' data-dismiss='alert'
+                        aria-hidden='true'>×</button>
+                        <div><strong>{{success.title}}</strong>: {{success.msg}}</div>
+                    </div>
+
+                    <h3 class="panel-title"><strong>Today's Meal Breakdown::</strong>
+                    </h3>
+                    <div class="panel-body">
+                        <p>
+                            <strong>% of Cholesterol Consumed:</strong> {{percentage_cholesterol | number:0}}
+                        </p>
+                        <p>
+                            <strong>% of Calories Consumed:</strong> {{percentage_calories | number:0}}
+                        </p>
+                        <p>
+                            <strong>Recommendation:</strong>
+                            {{recommendation}}
+                        </p>
+                    </div>
         </div>
     </div>
 </div>

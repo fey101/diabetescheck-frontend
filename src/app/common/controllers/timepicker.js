@@ -10,6 +10,7 @@
         $scope.enableTime = false;
         $scope.isOpen = false;
         $scope.openTimePicker = function(e) {
+            console.log(e);
             e.preventDefault();
             $scope.isOpen = true;
         };

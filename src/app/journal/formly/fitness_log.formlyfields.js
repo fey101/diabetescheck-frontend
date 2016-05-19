@@ -36,9 +36,10 @@
                     "ngModelElAttrs": {
                         "tabindex": "2"
                     },
-                    "defaultValue": "00:30:00",
                     "templateOptions": {
                         "label": "Duration",
+                        "description": "Time format should be (HH:MM:SS)",
+                        "placeholder": "HH:MM:SS",
                         "required": true,
                         "type": "datetime"
                     },

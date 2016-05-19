@@ -40,6 +40,7 @@
                                 function(error) {
                                     $scope.alert = error_svc.showError(
                                         error, "Error");
+                                    $scope.submitClicked = false;
                                 }
                             );
                         }, function(error) {
@@ -115,6 +116,7 @@
                             },
                             function(error) {
                                 $scope.alert = error_svc.showError(error, "Error");
+                                $scope.submitClicked = false;
                             }
                         );
                 }

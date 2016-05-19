@@ -80,7 +80,6 @@
                                 "id": 7
                             }
                         ],
-                        "reqValidationMsg": "This field is required",
                         "required": false
                     },
                     "type": "multiCheckbox"

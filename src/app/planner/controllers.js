@@ -94,6 +94,46 @@
                                 msg:message,
                                 title: "OK"
                             };
+
+                            var d = new Date();
+                            var month = "" + (d.getMonth() + 1);
+                            var day = "" + d.getDate();
+                            var year = d.getFullYear();
+                            if (month.length < 2) month = "0" + month;
+                            if (day.length < 2) day = "0" + day;
+                            var today = [year, month, day].join("-");
+                            console.log(today);
+                            var params = {date: today};
+                            recipeLink.foodLog.findAll(params).then(
+                                function (logs) {
+                                    $scope.sumOf_calories = 0;
+                                    $scope.sumOf_cholesterol = 0;
+                                    _.each(logs, function(log){
+                                        var calories_gained = parseInt (log.calories_gained, 10);
+                                        var cholesterol_gained = parseInt (log.cholesterol_gained, 10);
+                                        $scope.sumOf_calories += calories_gained;
+                                        $scope.sumOf_cholesterol += cholesterol_gained;
+                                    });
+                                    $scope.percentage_calories = 100 * (
+                                        $scope.sumOf_calories/$scope.plannerModel.caloric_target);
+                                    $scope.percentage_cholesterol = 100 * (
+                                        $scope.sumOf_cholesterol/$scope.plannerModel.cholestrol_target);
+                                    console.log($scope.percentage_cholesterol + "sum: " + $scope.sumOf_cholesterol);
+                                    if ($scope.percentage_calories <= 100 &&
+                                        $scope.percentage_cholesterol <= 100) {
+                                        $scope.recommendation =
+                                            "Calories and  Cholesterol levels within acceptable limits";
+                                    }
+                                    else {
+                                        $scope.recommendation =
+                                        "Calories/cholesterol intake above acceptable limits. This increases your risk of becoming diabetic";
+                                    }
+                                },
+                                function(error) {
+                                    $scope.alert = error_svc.showError(
+                                        error, "Error");
+                                }
+                            );
                         },
                         function(error) {
                             $scope.alert = error_svc.showError(
