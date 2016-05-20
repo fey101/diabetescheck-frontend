@@ -7,16 +7,16 @@
         $stateProvider
             .state("recipe", {
                 parent: "base_state",
-                url: "/recipes",
+                url: "/fooditems",
                 views: {
                     "content@": {
                         controller: "dbcheck.recipe.controllers.listRecipes",
                         templateUrl: "recipe/tpls/listView.tpl.html"
-                    },
-                    "pageactions@":{
-                        templateUrl: "recipe/tpls/pageactions/" +
-                        "list_pageactions.tpl.html"
                     }
+                    // "pageactions@":{
+                    //     templateUrl: "recipe/tpls/pageactions/" +
+                    //     "list_pageactions.tpl.html"
+                    // }
                 }
             })
             .state("recipe.add", {

@@ -104,7 +104,7 @@
                             var today = [year, month, day].join("-");
                             console.log(today);
                             var params = {date: today};
-                            recipeLink.foodLog.findAll(params).then(
+                            recipeLink.foodLog.findAll(params,{ bypassCache: true }).then(
                                 function (logs) {
                                     $scope.sumOf_calories = 0;
                                     $scope.sumOf_cholesterol = 0;
@@ -118,7 +118,7 @@
                                         $scope.sumOf_calories/$scope.plannerModel.caloric_target);
                                     $scope.percentage_cholesterol = 100 * (
                                         $scope.sumOf_cholesterol/$scope.plannerModel.cholestrol_target);
-                                    console.log($scope.percentage_cholesterol + "sum: " + $scope.sumOf_cholesterol);
+                                    console.log($scope.percentage_calories + "sum: " + $scope.sumOf_calories);
                                     if ($scope.percentage_calories <= 100 &&
                                         $scope.percentage_cholesterol <= 100) {
                                         $scope.recommendation =
