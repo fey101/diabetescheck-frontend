@@ -149,9 +149,10 @@
                     console.log(results);
                     console.log("points:" + totalPoints);
                     var message = results;
+                    var title = totalPoints + " points";
                     $scope.success = {
                         msg:message,
-                        title: ""
+                        title: title
                     };
                 }
                 else {
